@@ -16,6 +16,12 @@ PROVINCE = [
     # "Bs.As. G.B.A. Zona Norte"
 ]
 
+MAP_PROVINCE = {
+    "Capital Federal": "Ciudad Autónoma de Buenos Aires", 
+    "Bs.As. G.B.A. Zona Sur": "Provincia de Buenos Aires"
+}
+
+
 PROPERTY_TYPE = ["PH", "Departamento"]
 COUNTRY = ["Argentina"]
 DROP_COLS = ["l5", "l6"]
