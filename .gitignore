@@ -1,8 +1,7 @@
 # Other
-*.csv
+data/raw/*.parquet
+data/raw/*.csv
 *.zip
-*.parquet
-data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
