@@ -1,12 +1,12 @@
-DATA_TRAIN_PATH = "data/properati_entrenamiento.csv"
-DATA_TEST_PATH = "data/properati_a_predecir.parquet"
+DATA_TRAIN_PATH = "data/processed/properati_entrenamiento.csv"
+DATA_TEST_PATH = "data/processed/properati_a_predecir.parquet"
 
 
 RENAME_COLS = {
     "l1": "country",
     "l2": "province",
-    "l3": "city_neighorhood",
-    "l4": "published_neigborhood",
+    "l3": "suburb",
+    "l4": "published_suburb",
 }
 
 PROVINCE = [
@@ -17,8 +17,8 @@ PROVINCE = [
 ]
 
 MAP_PROVINCE = {
-    "Capital Federal": "Ciudad Autónoma de Buenos Aires", 
-    "Bs.As. G.B.A. Zona Sur": "Provincia de Buenos Aires"
+    "Capital Federal": "Ciudad Autonoma de Buenos Aires", 
+    "Bs.As. G.B.A. Zona Sur": "Buenos Aires"
 }
 
 
