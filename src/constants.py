@@ -31,8 +31,8 @@ TIMEOUT = 30
 CG_CABA = [-34.61448064637565, -58.44638197269814]
 CG_PLATA = [-34.92137784728068, -57.95455274162061]
 
-CG_CABA_SUBURB = "Caballito"
-CG_PLATA_SUBURB = "La Plata"
+CG_CABA_SUBURB = "Unknown"
+CG_PLATA_SUBURB = "Unknown"
 
 
 l = []
@@ -81,6 +81,6 @@ patterns_bathrooms = [
 ]
 
 patterns_bedrooms = [
-    r"\b([1-9])\s?(?:habitacion|habitaciones|alcoba|alcobas|cuarto|cuartos|pieza|piezas)\b",
-    r"\b(?:habitacion|habitaciones|alcoba|alcobas|cuarto|cuartos|pieza|piezas)\s*?([1-9])\b",
+    r"\b([1-9])\s?(?:habitacion|habitaciones|alcoba|alcobas|cuarto|cuartos|pieza|piezas|suite|suites)\b",
+    r"\b(?:habitacion|habitaciones|alcoba|alcobas|cuarto|cuartos|pieza|piezas|suite|suites)\s*?([1-9])\b",
 ]

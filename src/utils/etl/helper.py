@@ -51,7 +51,6 @@ def clean_text(df: pd.DataFrame) -> pd.DataFrame:
     df["title"] = (
         df["title"]
         .swifter
-        .allow_dask_on_strings(enable=True)
         .apply(lambda x: unidecode(x).lower().replace("  ", " ").replace(",", ".").strip())
         .apply(remove_stopwords_punctuaction)
         .apply(replace_number_words_with_ordinals)
@@ -60,7 +59,6 @@ def clean_text(df: pd.DataFrame) -> pd.DataFrame:
     df["description"] = (
         df["description"]
         .swifter
-        .allow_dask_on_strings(enable=True)
         .apply(lambda x: unidecode(x).lower().replace("  ", " ").replace(",", ".").strip())
         .apply(remove_stopwords_punctuaction)
         .apply(replace_number_words_with_ordinals)

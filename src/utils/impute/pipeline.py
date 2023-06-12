@@ -78,7 +78,7 @@ def impute_suburbs_cg(df: pd.DataFrame) -> pd.DataFrame:
 
 def impute_suburbs_lat_lon(df: pd.DataFrame) -> pd.DataFrame:
     mask = (~df["lat"].isna()) & (~df["lon"].isna()) & (df["suburb"].isna())
-    df.loc[mask, "suburb"] = df.loc[mask, ["lat", "lon"]].swifter.apply(lambda x: get_suburb(x["lat"].round(4), x["lon"].round(4)), axis=1)
+    df.loc[mask, "suburb"] = df.loc[mask, ["lat", "lon"]].swifter.apply(lambda x: get_suburb(x["lat"], x["lon"]), axis=1)
 
     return df
 
@@ -97,26 +97,32 @@ def impute_suburbs_cache(df: pd.DataFrame) -> pd.DataFrame:
 def suburbs(df: pd.DataFrame) -> pd.DataFrame:
     all_suburbs = get_all_suburbs(df)
     df = impute_suburbs_from_text(df, all_suburbs)
+    print(df.isna().sum())
     df = impute_suburbs_cg(df)
-    df = impute_suburbs_cache(df)
-
+    print(df.isna().sum())
+    # df = impute_suburbs_cache(df)
+    # print(df.isna().sum())
     df = impute_suburbs_lat_lon(df)
+    print(df.isna().sum())
 
     mask = (~df["published_suburb"].isna()) & (df["lat"].isna()) & (df["lon"].isna())
-    df.loc[mask, "lat"], df.loc[mask, "lon"] = zip(
-        *df.loc[mask, ["published_suburb", "province"]].swifter.apply(lambda x: get_lat_lon(x["published_suburb"], x["province"]), axis=1)
-    )
+    df.loc[mask, "lat"], df.loc[mask, "lon"] = df.loc[mask, ["published_suburb", "province"]].swifter.apply(lambda x: get_lat_lon(x["published_suburb"], x["province"]), axis=1, result_type="expand")
+    print(df.isna().sum())
 
     mask = (~df["suburb"].isna()) & (df["lat"].isna()) & (df["lon"].isna())
-    df.loc[mask, "lat"], df.loc[mask, "lon"] = zip(
-        *df.loc[mask, ["suburb", "province"]].swifter.apply(lambda x: get_lat_lon(x["suburb"], x["province"]), axis=1))
+    df.loc[mask, "lat"], df.loc[mask, "lon"] = df.loc[mask, ["suburb", "province"]].swifter.apply(lambda x: get_lat_lon(x["suburb"], x["province"]), axis=1, result_type="expand")
+    print(df.isna().sum())
 
-    mask = df["suburb"].isna()
-    df.loc[mask, "suburb"] = (df.loc[mask, ["lat", "lon"]].swifter.apply(lambda x: get_suburb(x["lat"], x["lon"]), axis=1))
+    mask = (df["suburb"].isna()) & (~df["lat"].isna()) & (~df["lon"].isna())
+    df.loc[mask, "suburb"] = df.loc[mask, ["lat", "lon"]].swifter.apply(lambda x: get_suburb(x["lat"], x["lon"]), axis=1)
+    print(df.isna().sum())
 
-    mask = df["published_suburb"].isna()
-    df.loc[mask, "published_suburb"] = (
-        df.loc[mask, ["lat", "lon"]].swifter.apply(lambda x: get_suburb(x["lat"], x["lon"]), axis=1))
+    df["published_suburb"] = df["published_suburb"].fillna(df["suburb"])
+    print(df.isna().sum())
+
+    df["suburb"] = df["suburb"].fillna(df["published_suburb"])
+    print(df.isna().sum())
+
 
     return df
 
@@ -247,6 +253,15 @@ def corrections(df: pd.DataFrame) -> pd.DataFrame:
     df["province"] = df[["province", "dist_buenos_aires"]].swifter.apply(
         lambda x: "Other" if x["dist_buenos_aires"] > KM_CABA else x["province"], axis=1
     )
+
+    # mask = (~df["rooms"].isna()) & (~df["surface_covered"].isna())
+    # rooms_per_area = (df[mask]["rooms"] / df[mask]["surface_covered"]).mean()
+    # df["rooms"] = df["rooms"].fillna(np.ceil(df["surface_covered"] * rooms_per_area))
+
+    # mask = (~df["rooms"].isna()) & (~df["surface_total"].isna())
+    # rooms_per_area = (df[mask]["rooms"] / df[mask]["surface_covered"]).mean()
+
+    # df["rooms"] = df["rooms"].fillna(np.ceil(df["surface_total"] * rooms_per_area))
 
     return df
 

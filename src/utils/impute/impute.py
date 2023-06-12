@@ -18,7 +18,7 @@ def get_suburb(lat: float, lon: float) -> str:
         return np.nan
 
     for i in location.raw["address"].keys():
-        if i in ["suburb", "town", "city", "village"]:
+        if i in ["suburb", "town", "city", "village", "municipality"]:
             return location.raw["address"][i]
 
 

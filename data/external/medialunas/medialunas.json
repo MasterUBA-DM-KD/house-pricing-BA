@@ -11,7 +11,7 @@
         "supernotable": true,
         "category": "facultad",
         "locationName": "FADU",
-        "address":"Pabell\xf3n 3, Int. G\xfciraldes 2160",
+        "address":"Pabellf3n 3, Int. Gfciraldes 2160",
         "price": 450,
         "tweets": [
             {
@@ -26,7 +26,7 @@
             },
             {
                 "pic": "https://pbs.twimg.com/profile_images/1319661953871171587/Rn81HWzw_normal.jpg",
-                "nick":"Clemen\'t",
+                "nick":"Clement",
                 "user": "clementdz",
                 "comment": " Barcito del patio de Fadu uba $450\\nFeca (Caballito) $600",
                 "reslength": 0,
@@ -48,7 +48,7 @@
         "notable": true,
         "supernotable": true,
         "category": "especialidad",
-        "locationName":"Plaza Caf\xe9",
+        "locationName":"Plaza Cafe9",
         "address": "Rivadavia 4732",
         "price": 910,
         "tweets": [
@@ -56,7 +56,7 @@
                 "pic": "https://pbs.twimg.com/profile_images/1284353661800452096/wG1k2_dv_normal.jpg",
                 "nick": "claseturista",
                 "user": "adrillaneza",
-                "comment":" Plaza Caf\xe9 en Doblas y Rivadavia est\xe1 $910, Nose si desayunan Paco pero no podes cobrar eso maestro.",
+                "comment":" Plaza Cafe9 en Doblas y Rivadavia este1 $910, Nose si desayunan Paco pero no podes cobrar eso maestro.",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631eb1c701d51bbc1c5d0c34"
@@ -94,7 +94,7 @@
                 "pic": "https://pbs.twimg.com/profile_images/1391931493216399360/2dTsdPqs_normal.jpg",
                 "nick": "Santiago",
                 "user": "saaaaaantl",
-                "comment":" En la Facultad de Derecho de la UBA est\xe1 la super promo de 600 pe un caf\xe9 con dos medialunas. No digan como vivimos https://t.co/oRQVFz8pxN",
+                "comment":" En la Facultad de Derecho de la UBA este1 la super promo de 600 pe un cafe9 con dos medialunas. No digan como vivimos https://t.co/oRQVFz8pxN",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631ed96b21090240fb3a8cd2"
@@ -115,11 +115,11 @@
         "supernotable": false,
         "category": "facultad",
         "locationName": "UNA DAMUs",
-        "address":"Av. C\xf3rdoba 2445",
+        "address":"Av. Cf3rdoba 2445",
         "price": 320,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -134,7 +134,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -162,12 +162,12 @@
         "notable": true,
         "supernotable": false,
         "category": "facultad",
-        "locationName":"UBA Ingenier\xeda",
-        "address":"Av. Paseo Col\xf3n 850",
+        "locationName":"UBA Ingeniereda",
+        "address":"Av. Paseo Colf3n 850",
         "price": 300,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -195,7 +195,7 @@
         "notable": true,
         "supernotable": false,
         "category": "facultad",
-        "locationName":"UBA Psicolog\xeda",
+        "locationName":"UBA Psicologeda",
         "address": "Av. Independencia 3065",
         "price": 220,
         "tweets": [
@@ -223,12 +223,12 @@
         "notable": true,
         "supernotable": false,
         "category": "especialidad",
-        "locationName":"Tol\xf3n",
+        "locationName":"Tolf3n",
         "address": "Av. Santa Fe 3200",
         "price": 500,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -243,7 +243,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -258,7 +258,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -286,7 +286,7 @@
         "notable": true,
         "supernotable": false,
         "category": "cadena",
-        "locationName":"Le bl\xe9",
+        "locationName":"Le ble9",
         "address": "Av. Callao 1593",
         "price": 760,
         "tweets": [],
@@ -304,11 +304,11 @@
         "supernotable": false,
         "category": "cadena",
         "locationName": "Havanna",
-        "address":"Rodr\xedguez Pe\xf1a 1205",
+        "address":"Rodredguez Pef1a 1205",
         "price": 590,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -323,7 +323,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -351,12 +351,12 @@
         "notable": true,
         "supernotable": false,
         "category": "",
-        "locationName":"UBA Filosof\xeda",
+        "locationName":"UBA Filosofeda",
         "address": "Puan 480",
         "price": 200,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -371,7 +371,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -386,7 +386,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -414,12 +414,12 @@
         "notable": true,
         "supernotable": false,
         "category": "notable",
-        "locationName":"La Nueva San Agust\xedn",
+        "locationName":"La Nueva San Agustedn",
         "address": "Gral. Las Heras 2915",
         "price": 380,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -447,7 +447,7 @@
         "notable": true,
         "supernotable": false,
         "category": "especialidad",
-        "locationName":"R\xedo Caf\xe9",
+        "locationName":"Redo Cafe9",
         "address": "Sarmiento 4699",
         "price": 620,
         "tweets": [
@@ -455,14 +455,14 @@
                 "pic": "https://pbs.twimg.com/profile_images/1550191626764574722/1l6D1xDt_normal.jpg",
                 "nick": "katja",
                 "user": "litoralll",
-                "comment":" Caf\xe9 R\xedo en Almagro $620",
+                "comment":" Cafe9 Redo en Almagro $620",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631ea1a201d51bbc1c5cfc04"
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -474,7 +474,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -486,7 +486,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -498,7 +498,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -510,7 +510,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -522,7 +522,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -534,7 +534,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -546,7 +546,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -558,7 +558,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -570,7 +570,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -582,7 +582,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -594,7 +594,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -606,7 +606,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -618,7 +618,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -630,7 +630,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -642,7 +642,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -654,7 +654,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -666,7 +666,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -678,7 +678,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -690,7 +690,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -702,7 +702,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -714,10 +714,10 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas\\n\\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas\\n\\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1569499198680072192/MPU3dQW8_normal.png",
-                "nick":"Caf\xe9 y 2 Medialunas",
+                "nick":"Cafe9 y 2 Medialunas",
                 "user": "cafe2medialunas",
                 "comment": " 500\\n loque sea",
                 "likes": 0,
@@ -726,7 +726,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -738,10 +738,10 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas\\n\\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas\\n\\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1569499198680072192/MPU3dQW8_normal.png",
-                "nick":"Caf\xe9 y 2 Medialunas",
+                "nick":"Cafe9 y 2 Medialunas",
                 "user": "cafe2medialunas",
                 "comment": " 500\\n loque sea",
                 "likes": 0,
@@ -750,7 +750,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -762,10 +762,10 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas\\n\\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas\\n\\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1569499198680072192/MPU3dQW8_normal.png",
-                "nick":"Caf\xe9 y 2 Medialunas",
+                "nick":"Cafe9 y 2 Medialunas",
                 "user": "cafe2medialunas",
                 "comment": " 500\\n loque sea",
                 "likes": 0,
@@ -774,7 +774,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -786,7 +786,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -798,10 +798,10 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas\\n\\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas\\n\\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1569499198680072192/MPU3dQW8_normal.png",
-                "nick":"Caf\xe9 y 2 Medialunas",
+                "nick":"Cafe9 y 2 Medialunas",
                 "user": "cafe2medialunas",
                 "comment": " 500\\n loque sea",
                 "likes": 0,
@@ -810,10 +810,10 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas\\n\\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas\\n\\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1569499198680072192/MPU3dQW8_normal.png",
-                "nick":"Caf\xe9 y 2 Medialunas",
+                "nick":"Cafe9 y 2 Medialunas",
                 "user": "cafe2medialunas",
                 "comment": " 500\\n loque sea",
                 "likes": 0,
@@ -822,7 +822,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -834,7 +834,7 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas \\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas \\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1562494635758571520/W9UcQ8Ah_normal.png",
                 "nick": "Babylon events",
@@ -846,10 +846,10 @@
                 }
             },
             {
-                "raw":"@cafe2medialunas\\n\\n1: R\xedo Caf\xe9\\n2: 500\\n3: loque sea",
+                "raw":"@cafe2medialunas\\n\\n1: Redo Cafe9\\n2: 500\\n3: loque sea",
                 "pricetw": " 500\\n",
                 "pic": "https://pbs.twimg.com/profile_images/1569499198680072192/MPU3dQW8_normal.png",
-                "nick":"Caf\xe9 y 2 Medialunas",
+                "nick":"Cafe9 y 2 Medialunas",
                 "user": "cafe2medialunas",
                 "comment": " 500\\n loque sea",
                 "likes": 0,
@@ -909,15 +909,15 @@
         "notable": true,
         "supernotable": false,
         "category": "especialidad",
-        "locationName":"Caf\xe9 Martinez",
+        "locationName":"Cafe9 Martinez",
         "address": "Av. Cabildo 3565",
         "price": 650,
         "tweets": [
             {
                 "pic": "https://pbs.twimg.com/profile_images/1466265058011324418/QIKxCzSB_normal.jpg",
-                "nick":"Noelia Gonz\xe1lez",
+                "nick":"Noelia Gonze1lez",
                 "user": "NOE_S_GO",
-                "comment":" Caf\xe9 Mart\xednez (Nu\xf1ez) $650.",
+                "comment":" Cafe9 Martednez (Nuf1ez) $650.",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631e9d4601d51bbc1c5cf818"
@@ -927,7 +927,7 @@
                 "pic": "https://pbs.twimg.com/profile_images/1567629338664640513/sDl5-2sJ_normal.jpg",
                 "nick": "luly",
                 "user": "venuscapricor",
-                "comment":" En caf\xe9 Mart\xednez est\xe1 650 \uD83E\uDEE0",
+                "comment":" En cafe9 Martednez este1 650 \uD83E\uDEE0",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631eb05701d51bbc1c5d09af"
@@ -948,14 +948,14 @@
         "supernotable": false,
         "category": "especialidad",
         "locationName": "No Tan Santos",
-        "address":"Nu\xf1ez 1650",
+        "address":"Nuf1ez 1650",
         "price": 480,
         "tweets": [
             {
                 "pic": "https://pbs.twimg.com/profile_images/1466265058011324418/QIKxCzSB_normal.jpg",
-                "nick":"Noelia Gonz\xe1lez",
+                "nick":"Noelia Gonze1lez",
                 "user": "NOE_S_GO",
-                "comment":" No Tan Santos (Nu\xf1ez) $480.",
+                "comment":" No Tan Santos (Nuf1ez) $480.",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631e9ef201d51bbc1c5cf9e3"
@@ -1305,7 +1305,7 @@
         "tweets": [
             {
                 "pic": "https://pbs.twimg.com/profile_images/1466265058011324418/QIKxCzSB_normal.jpg",
-                "nick":"Noelia Gonz\xe1lez",
+                "nick":"Noelia Gonze1lez",
                 "user": "NOE_S_GO",
                 "comment": " Tostado (Barrio Norte) no tiene promo, sumando cortado mediano $280 + $115 cada medialuna, da $765.",
                 "reslength": 0,
@@ -1333,9 +1333,9 @@
         "tweets": [
             {
                 "pic": "https://pbs.twimg.com/profile_images/1534282673786605573/AK_oAfqv_normal.jpg",
-                "nick":"AQU\xcd CARGA GORDA",
+                "nick":"AQUcd CARGA GORDA",
                 "user": "cargagorda",
-                "comment":" Buffet de Undav (sede Espa\xf1a, Avellaneda) caf\xe9 con leche + 2 medialunas horribles $390. Es un afano o yo ya perd\xed los par\xe1metros?",
+                "comment":" Buffet de Undav (sede Espaf1a, Avellaneda) cafe9 con leche + 2 medialunas horribles $390. Es un afano o yo ya perded los pare1metros?",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631ea3cc01d51bbc1c5cfdc7"
@@ -1343,9 +1343,9 @@
             },
             {
                 "pic": "https://pbs.twimg.com/profile_images/1534282673786605573/AK_oAfqv_normal.jpg",
-                "nick":"AQU\xcd CARGA GORDA",
+                "nick":"AQUcd CARGA GORDA",
                 "user": "cargagorda",
-                "comment":" Agrego: caf\xe9 con leche solo (rico, aceptable) $190",
+                "comment":" Agrego: cafe9 con leche solo (rico, aceptable) $190",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631ea3cc01d51bbc1c5cfdc8"
@@ -1365,15 +1365,15 @@
         "notable": true,
         "supernotable": false,
         "category": "",
-        "locationName":"UNDAV Sede Pi\xf1eyro",
-        "address":"Pi\xf1eyro",
+        "locationName":"UNDAV Sede Pif1eyro",
+        "address":"Pif1eyro",
         "price": 400,
         "tweets": [
             {
                 "pic": "https://pbs.twimg.com/profile_images/1361527193550155776/a1JxhHB6_normal.jpg",
                 "nick": "Julia \uD83D\uDC9A",
                 "user": "JulsOnTheRocks",
-                "comment":"@cargagorda  Sumo Sede Undav Pi\xf1eyro\\nCaf\xe9 con leche aceptable con dos medialunas y juguito\\n$400 https://t.co/xWzLMyhQC2",
+                "comment":"@cargagorda  Sumo Sede Undav Pif1eyro\\nCafe9 con leche aceptable con dos medialunas y juguito\\n$400 https://t.co/xWzLMyhQC2",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631ea43f01d51bbc1c5cfe98"
@@ -1401,7 +1401,7 @@
                 "pic": "https://pbs.twimg.com/profile_images/1524326834732687372/wBqzG_xq_normal.jpg",
                 "nick": "Bren \uD83C\uDF52",
                 "user": "_idk_brxn",
-                "comment":" Kope Garden (Ituzaing\xf3)\\n$450",
+                "comment":" Kope Garden (Ituzaingf3)\\n$450",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631ea98e01d51bbc1c5d043e"
@@ -1421,7 +1421,7 @@
         "notable": true,
         "supernotable": false,
         "category": "cadena",
-        "locationName":"Caf\xe9 Martinez",
+        "locationName":"Cafe9 Martinez",
         "address": "San Justo",
         "price": 650,
         "tweets": [
@@ -1429,7 +1429,7 @@
                 "pic": "https://pbs.twimg.com/profile_images/1566263445774901248/3ToDhybA_normal.jpg",
                 "nick": "Mar☀️a C.Vazquez \uD83C\uDF0E",
                 "user": "umavazquez",
-                "comment":" @Whisperingapra2 Caf\xe9 Martinez San Justo 650$",
+                "comment":" @Whisperingapra2 Cafe9 Martinez San Justo 650$",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631eaaf701d51bbc1c5d0664"
@@ -1449,15 +1449,15 @@
         "notable": true,
         "supernotable": false,
         "category": "barrestaurant",
-        "locationName":"Pizzer\xeda Juancito",
-        "address":"Maip\xfa 230",
+        "locationName":"Pizzereda Juancito",
+        "address":"Maipfa 230",
         "price": 380,
         "tweets": [
             {
                 "pic": "https://pbs.twimg.com/profile_images/1567914681859280896/ThPID4iL_normal.jpg",
                 "nick": "Queen of Chuthulus",
                 "user": "untogaandaluz",
-                "comment":" 380pe en Juancito dos medialunas un caf\xe9 con leche.\\nBanfield. https://t.co/dQrbL3YP6F",
+                "comment":" 380pe en Juancito dos medialunas un cafe9 con leche.\\nBanfield. https://t.co/dQrbL3YP6F",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631eb22d01d51bbc1c5d0d6c"
@@ -1477,7 +1477,7 @@
         "notable": true,
         "supernotable": false,
         "category": "facultad",
-        "locationName":"Pabell\xf3n 1",
+        "locationName":"Pabellf3n 1",
         "address": "Ciudad universitaria",
         "price": 150,
         "tweets": [
@@ -1485,7 +1485,7 @@
                 "pic": "https://pbs.twimg.com/profile_images/1552875444365557760/LPItRk6F_normal.jpg",
                 "nick": "malena",
                 "user": "eastwindd",
-                "comment":" Ciudad Universitaria Pabell\xf3n 1 $150",
+                "comment":" Ciudad Universitaria Pabellf3n 1 $150",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631ec47ef6f58366331acd33"
@@ -1505,8 +1505,8 @@
         "notable": true,
         "supernotable": false,
         "category": "cadena",
-        "locationName":"MC Donald\'s",
-        "address":"Av. C\xf3rdoba 3821",
+        "locationName":"MC Donalds",
+        "address":"Av. Cf3rdoba 3821",
         "price": 240,
         "tweets": [
             {
@@ -1541,7 +1541,7 @@
                 "pic": "https://pbs.twimg.com/profile_images/1560467716565344258/CTfwWjjb_normal.jpg",
                 "nick": "Sol Godoy",
                 "user": "sollgodoyy",
-                "comment":" En el havanna de san justo el ccl en taz\xf3n con medialunas esta $610",
+                "comment":" En el havanna de san justo el ccl en tazf3n con medialunas esta $610",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631ed87545bf5e74f684b089"
@@ -1597,7 +1597,7 @@
                 "pic": "https://pbs.twimg.com/profile_images/1302648361292574721/s9lBk56S_normal.jpg",
                 "nick": "Sol \uD83D\uDC9A",
                 "user": "sxlguerraa",
-                "comment":" Mula - Las Heras y Uriburu\\nCafe con 3 medialunas\\n$550 ARS\\n\\n(El cafe es riqu\xedsimo✨)",
+                "comment":" Mula - Las Heras y Uriburu\\nCafe con 3 medialunas\\n$550 ARS\\n\\n(El cafe es riquedsimo✨)",
                 "reslength": 0,
                 "_id": {
                     "$oid": "631edb8945bf5e74f684b2ef"
@@ -1622,7 +1622,7 @@
         "price": 900,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -1637,7 +1637,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -1652,7 +1652,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -1680,12 +1680,12 @@
         "notable": true,
         "supernotable": false,
         "category": "especialidad",
-        "locationName":"Caf\xe9 Tortoni",
+        "locationName":"Cafe9 Tortoni",
         "address": "Av. de Mayo 825",
         "price": 800,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -1718,7 +1718,7 @@
         "price": 380,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -1733,7 +1733,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -1761,12 +1761,12 @@
         "notable": true,
         "supernotable": false,
         "category": "especialidad",
-        "locationName":"De Flores Caf\xe9",
+        "locationName":"De Flores Cafe9",
         "address": "Av. Lacarra 1500",
         "price": 300,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -1781,7 +1781,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -1796,7 +1796,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -1824,12 +1824,12 @@
         "notable": true,
         "supernotable": false,
         "category": "especialidad",
-        "locationName":"Astromelia Caf\xe9",
+        "locationName":"Astromelia Cafe9",
         "address": "Suipacha 214",
         "price": 350,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -1844,7 +1844,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -1872,12 +1872,12 @@
         "notable": true,
         "supernotable": false,
         "category": "",
-        "locationName":"Ministerio de econom\xeda",
-        "address":"Hip\xf3lito Yrigoyen 250",
+        "locationName":"Ministerio de economeda",
+        "address":"Hipf3lito Yrigoyen 250",
         "price": 240,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -1892,7 +1892,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -1907,7 +1907,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -1940,7 +1940,7 @@
         "price": 230,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -1955,7 +1955,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -1970,7 +1970,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -2003,7 +2003,7 @@
         "price": 250,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -2018,7 +2018,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -2033,7 +2033,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -2062,11 +2062,11 @@
         "supernotable": false,
         "category": "especialidad",
         "locationName": "Argentina Cooperativa",
-        "address":"Azcu\xe9naga 727",
+        "address":"Azcue9naga 727",
         "price": 250,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -2081,7 +2081,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -2096,7 +2096,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -2129,7 +2129,7 @@
         "price": 250,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -2144,7 +2144,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -2159,7 +2159,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -2192,7 +2192,7 @@
         "price": 250,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -2207,7 +2207,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -2222,7 +2222,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -2255,7 +2255,7 @@
         "price": 260,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -2270,7 +2270,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -2285,7 +2285,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -2318,7 +2318,7 @@
         "price": 315,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -2333,7 +2333,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -2348,7 +2348,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -2381,7 +2381,7 @@
         "price": 350,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -2396,7 +2396,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -2411,7 +2411,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
@@ -2440,11 +2440,11 @@
         "supernotable": false,
         "category": "cadena",
         "locationName": "Viccenzo",
-        "address":"Av. Maip\xfa 802",
+        "address":"Av. Maipfa 802",
         "price": 360,
         "tweets": [
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1533471107965145088/KFdyRZRo_normal.jpg",
@@ -2459,7 +2459,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1556135461189406720/4UErQd7F_400x400.jpg",
@@ -2474,7 +2474,7 @@
                 }
             },
             {
-                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pod\xe9s avanzar al siguiente stage :)",
+                "raw":"@leomonzondev 1:Argentina 2: 450 3:7 4: Lograste que funcione correctamente, pode9s avanzar al siguiente stage :)",
                 "locationtw": "",
                 "pricetw": "450",
                 "pic": "https://pbs.twimg.com/profile_images/1565124196312694786/1vUvpwN1_400x400.jpg",
