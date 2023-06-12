@@ -2,6 +2,9 @@ DATA_TRAIN_PATH = "data/processed/properati_entrenamiento.csv"
 DATA_TEST_PATH = "data/processed/properati_a_predecir.parquet"
 
 
+KM_CABA = 100
+USER_AGENT= "Googlev3"
+
 RENAME_COLS = {
     "l1": "country",
     "l2": "province",
@@ -25,9 +28,11 @@ OPERATION_TYPE = ["Venta"]
 
 TIMEOUT = 30
 
+CG_CABA = [-34.61448064637565, -58.44638197269814]
+CG_PLATA = [-34.92137784728068, -57.95455274162061]
 
-centro_geografico_caba = [-34.61448064637565, -58.44638197269814]
-centro_geografico_plata = [-34.92137784728068, -57.95455274162061]
+CG_CABA_SUBURB = "Caballito"
+CG_PLATA_SUBURB = "La Plata"
 
 
 l = []
@@ -39,7 +44,7 @@ for i in l1:
         l.append(f"{i} {j}")
         l0.append(f"{j} {i}")
 patterns_surface_total = [
-    rf"\b(\d+(?:\.\d*)?)(?:\s)?(?:{'|'.join(l)})\b",
+    fr"\b(\d+(?:\.\d*)?)(?:\s)?(?:{'|'.join(l)})\b",
     rf"\b(?:{'|'.join(l)})(?:\s)?(\d+(?:\.\d*)?)\b",
     rf"\b(\d+(?:\.\d*)?)(?:\s)?(?:{'|'.join(l0)})\b",
     rf"\b(?:{'|'.join(l0)})(?:\s)?(\d+(?:\.\d*)?)\b",
@@ -47,7 +52,6 @@ patterns_surface_total = [
 
 l = []
 l0 = []
-l1 = ["m2", "metro", "metros", "mts", "mts2", "mt2", "mt", "mtrs", "mtr"]
 l2 = ["descubierto", "descubiertos", "descubierta", "descubiertas", "desc"]
 for i in l1:
     for j in l2:
@@ -61,9 +65,15 @@ patterns_surface_covered = [
 ]
 
 l = ["m2", "metro", "metros", "mts", "mts2", "mt2", "mt", "mtrs", "mtr"]
-patterns_surface = [rf"\b(\d+(?:\.\d*)?)(?:\s)?(?:{'|'.join(l)})\b", rf"\b(?:{'|'.join(l)})(?:\s)?(\d+(?:\.\d*)?)\b"]
+patterns_surface = [
+    rf"\b(\d+(?:\.\d*)?)(?:\s)?(?:{'|'.join(l)})\b",
+    rf"\b(?:{'|'.join(l)})(?:\s)?(\d+(?:\.\d*)?)\b"
+]
 
-patterns_rooms = [r"\b([1-9])\s?(?:amb|ambientes|ambiente)\b", r"\b(?:amb|ambientes|ambiente)\s?([1-9])\b"]
+patterns_rooms = [
+    r"\b([1-9])\s?(?:amb|ambientes|ambiente)\b",
+    r"\b(?:amb|ambientes|ambiente)\s?([1-9])\b"
+]
 
 patterns_bathrooms = [
     r"\b([1-9])\s?(?:bano|banos|lavabo|lavabos|retrete|retretes|toilet|toilets)\b",

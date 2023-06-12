@@ -28,8 +28,15 @@ def fill_na(df: pd.DataFrame) -> pd.DataFrame:
     df["surface_total"] = df["surface_total"].map(lambda x: np.nan if x < 15 else x)
     df["surface_covered"] = df["surface_covered"].map(lambda x: np.nan if x < 15 else x)
 
+    df["title"] = df["title"].fillna("")
+    df["description"] = df["description"].fillna("")
+
     df["lat"] = df["lat"].fillna(np.nan)
     df["lon"] = df["lon"].fillna(np.nan)
+    mask = ((~df["lat"].isna()) & (~df["lon"].isna()))
+
+    df.loc[mask, "lat"] = df.loc[mask, "lat"].astype(float).round(4)
+    df.loc[mask, "lon"] = df.loc[mask, "lon"].astype(float).round(4)
 
     mask = (~df["lat"].isna()) & (df["lon"].isna())
     df.loc[mask, "lat"] = np.nan
@@ -40,11 +47,10 @@ def fill_na(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def clean_text(df: pd.DataFrame, n_partitions: int) -> pd.DataFrame:
+def clean_text(df: pd.DataFrame) -> pd.DataFrame:
     df["title"] = (
         df["title"]
-        .swifter.set_dask_scheduler("processes")
-        .set_npartitions(n_partitions)
+        .swifter
         .allow_dask_on_strings(enable=True)
         .apply(lambda x: unidecode(x).lower().replace("  ", " ").replace(",", ".").strip())
         .apply(remove_stopwords_punctuaction)
@@ -53,8 +59,7 @@ def clean_text(df: pd.DataFrame, n_partitions: int) -> pd.DataFrame:
 
     df["description"] = (
         df["description"]
-        .swifter.set_dask_scheduler("processes")
-        .set_npartitions(n_partitions)
+        .swifter
         .allow_dask_on_strings(enable=True)
         .apply(lambda x: unidecode(x).lower().replace("  ", " ").replace(",", ".").strip())
         .apply(remove_stopwords_punctuaction)

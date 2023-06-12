@@ -16,14 +16,14 @@ def extract() -> Tuple[pd.DataFrame, pd.DataFrame]:
     return df_train, df_test
 
 
-def transform(df: pd.DataFrame, n_partitions: int = 16) -> pd.DataFrame:
+def transform(df: pd.DataFrame) -> pd.DataFrame:
     df = filter_columns(df)
     df = fill_na(df)
 
     df[["lat", "lon"]] = df[["lon", "lat"]]
     df["province"] = df["province"].map(MAP_PROVINCE)
 
-    df = clean_text(df, n_partitions)
+    df = clean_text(df)
 
     return df
 
