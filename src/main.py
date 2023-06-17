@@ -111,8 +111,6 @@ if __name__ == "__main__":
         df_train = df[df["is_train"]].drop("is_train", axis=1)
         df_test = df[~df["is_train"]].drop("is_train", axis=1)
 
-        # df_train = df_train.dropna(axis=0)
-        #
         df_train = df_train.reset_index(drop=False)
         df_test = df_test.reset_index(drop=False)
 
@@ -128,34 +126,25 @@ if __name__ == "__main__":
     df_train["rooms"] = df_train["rooms"].fillna(df_test["rooms"].median())
     df_train["bedrooms"] = df_train["bedrooms"].fillna(df_test["bedrooms"].median())
 
-    df_train = df_train[df_train["rooms"] <= df_test["rooms"].max()]
-    df_train = df_train[df_train["bedrooms"] <= df_test["bedrooms"].max()]
-
-    # print(len(df_train.isna().sum()))
-    # print(len(df_test.isna().sum()))
-    # print(df_train.columns)
+    df_train = df_train[(df_train["rooms"] <= df_test["rooms"].max())] # & (df_train["rooms"] > df_test["rooms"].min())]
+    df_train = df_train[(df_train["bedrooms"] <= df_test["bedrooms"].max())] # & (df_train["bedrooms"] > df_test["bedrooms"].min())]
 
     df_train["price"] = df_train["price"].fillna(df_train["price"].median())
 
     df_train = df_train[df_train["price"] > 0]
-    df_train["price"] = np.log(df_train["price"])
-    indices_to_keep = ~df_train.isin([np.nan, np.inf, -np.inf]).any(axis=1)
-    df_train = df_train[indices_to_keep].astype(np.float64)
+    # indices_to_keep = ~df_train.isin([np.nan, np.inf, -np.inf]).any(axis=1)
+    # df_train = df_train[indices_to_keep].astype(np.float64)
 
     # extra_cols = ["lat", "lon", "dist_buenos_aires", "surface_total"]
     # df_train.drop(extra_cols, axis=1, inplace=True)
     # df_test.drop(extra_cols, axis=1, inplace=True)
 
-    # df_train = df_train.fillna(0)
-    # df_test = df_test.fillna(0)
     df_train["rooms"] = df_train["rooms"].fillna(df_train["rooms"].mean())
     df_train["bathrooms"] = df_train["bathrooms"].fillna(df_train["bathrooms"].mean())
     df_train["bedrooms"] = df_train["bedrooms"].fillna(df_train["rooms"]-1)
 
     df_train["surface_covered"] = df_train["surface_covered"].fillna(df_train["surface_total"].mean())
     df_train["surface_covered"] = df_train["surface_covered"].fillna(df_train["surface_covered"])
-
-
 
     df_train = df_train.drop(["surface_total"], axis=1)
     df_test = df_test.drop(["surface_total"], axis=1)
@@ -190,9 +179,6 @@ if __name__ == "__main__":
 
         # Predecimos en train
         y_pred = reg.predict(X_train)
-        y_pred = np.exp(y_pred)
-
-        y_train = np.exp(y_train)
 
         # Medimos la performance de la predicción en test
         score_train = sk.metrics.mean_squared_error(y_train, y_pred)
@@ -201,9 +187,6 @@ if __name__ == "__main__":
 
         # Predecimos en test
         y_pred = reg.predict(X_test)
-        y_pred = np.exp(y_pred)
-
-        y_test = np.exp(y_test)
 
         # Medimos la performance de la predicción en test
         score_test = sk.metrics.mean_squared_error(y_test, y_pred)
@@ -226,7 +209,6 @@ if __name__ == "__main__":
 
     # Predecimos
     df_test['price'] = reg.predict(X_prueba)
-    df_test['price'] = np.exp(df_test['price'])
 
     # Grabamos
     df_test['price'].to_csv('data/processed/solucion.csv', index=True)
