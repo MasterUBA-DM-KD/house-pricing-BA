@@ -13,6 +13,7 @@ from src.utils.etl.helper import clean_text, fill_na, filter_columns
 def extract() -> Tuple[pd.DataFrame, pd.DataFrame]:
     df_train = pd.read_csv(DATA_TRAIN_PATH)
     df_test = pd.read_csv(DATA_TEST_PATH)
+
     return df_train, df_test
 
 

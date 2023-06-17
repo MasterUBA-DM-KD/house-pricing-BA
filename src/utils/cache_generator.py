@@ -4,7 +4,7 @@ from src.utils.impute.impute import get_suburb
 
 
 def cache_suburbs():
-    df = pd.read_parquet("../data/interim/df_test_eda.parquet", engine="pyarrow")
+    df = pd.read_parquet("data/interim/df_test.parquet", engine="pyarrow")
 
     mask = ((~df["lat"].isna()) & (~df["lon"].isna()))
 

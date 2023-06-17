@@ -1,5 +1,5 @@
-DATA_TRAIN_PATH = "data/processed/properati_entrenamiento.csv"
-DATA_TEST_PATH = "data/processed/properati_a_predecir.parquet"
+DATA_TRAIN_PATH = "data/raw/properati_entrenamiento.csv"
+DATA_TEST_PATH = "data/raw/properati_a_predecir.csv"
 
 
 KM_CABA = 100

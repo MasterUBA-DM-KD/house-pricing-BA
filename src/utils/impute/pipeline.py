@@ -84,7 +84,7 @@ def impute_suburbs_lat_lon(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def impute_suburbs_cache(df: pd.DataFrame) -> pd.DataFrame:
-    cache_suburbs = pd.read_csv("../data/processed/cache_suburbs.csv")
+    cache_suburbs = pd.read_csv("data/processed/cache_suburbs.csv")
     mask = ((~df["lat"].isna()) & (~df["lon"].isna()))
     df = df.merge(cache_suburbs, on=["lat", "lon"], how="left", suffixes=("", "_y"))
     df["suburb"] = df["suburb_y"]
@@ -97,39 +97,41 @@ def impute_suburbs_cache(df: pd.DataFrame) -> pd.DataFrame:
 def suburbs(df: pd.DataFrame) -> pd.DataFrame:
     all_suburbs = get_all_suburbs(df)
     df = impute_suburbs_from_text(df, all_suburbs)
-    print(df.isna().sum())
+    # print(df.isna().sum())
     df = impute_suburbs_cg(df)
-    print(df.isna().sum())
+    # print(df.isna().sum())
     # df = impute_suburbs_cache(df)
     # print(df.isna().sum())
     df = impute_suburbs_lat_lon(df)
-    print(df.isna().sum())
+    # print(df.isna().sum())
 
     mask = (~df["published_suburb"].isna()) & (df["lat"].isna()) & (df["lon"].isna())
     df.loc[mask, "lat"], df.loc[mask, "lon"] = df.loc[mask, ["published_suburb", "province"]].swifter.apply(lambda x: get_lat_lon(x["published_suburb"], x["province"]), axis=1, result_type="expand")
-    print(df.isna().sum())
+    # print(df.isna().sum())
 
     mask = (~df["suburb"].isna()) & (df["lat"].isna()) & (df["lon"].isna())
     df.loc[mask, "lat"], df.loc[mask, "lon"] = df.loc[mask, ["suburb", "province"]].swifter.apply(lambda x: get_lat_lon(x["suburb"], x["province"]), axis=1, result_type="expand")
-    print(df.isna().sum())
+    # print(df.isna().sum())
 
     mask = (df["suburb"].isna()) & (~df["lat"].isna()) & (~df["lon"].isna())
     df.loc[mask, "suburb"] = df.loc[mask, ["lat", "lon"]].swifter.apply(lambda x: get_suburb(x["lat"], x["lon"]), axis=1)
-    print(df.isna().sum())
+    # print(df.isna().sum())
 
     df["published_suburb"] = df["published_suburb"].fillna(df["suburb"])
-    print(df.isna().sum())
+    # print(df.isna().sum())
 
     df["suburb"] = df["suburb"].fillna(df["published_suburb"])
-    print(df.isna().sum())
+    # print(df.isna().sum())
 
 
     return df
 
 
 def get_all_suburbs(df: pd.DataFrame) -> List[str]:
-    df_barrios = pd.read_csv("../data/external/barrios/barrios_caba.csv")
+    df_barrios = pd.read_csv("data/external/barrios/barrios_caba.csv")
     df_barrios["barrio"] = df_barrios["barrio"].swifter.apply(lambda x: unidecode(x.lower()))
+
+    # df_barrios = df_barrios.rename(columns={"barrio": "suburb"})
 
     all_suburbs = []
     for i in df["suburb"].dropna().unique():
@@ -188,7 +190,7 @@ def surface(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def surface_covered(df: pd.DataFrame) -> pd.DataFrame:
-    print(patterns_surface_covered[0])
+    # print(patterns_surface_covered[0])
     mask = df["surface_covered"].isna()
     df.loc[mask, "surface_covered"] = df.loc[mask,[ "description"]].swifter.apply(lambda x: search_in_text(x["description"], patterns_surface_covered), axis=1)
     # df.loc[mask, "surface_covered"] = imputer #df.loc[mask, "surface_covered"].fillna(imputer)
@@ -216,16 +218,8 @@ def surface_total(df: pd.DataFrame) -> pd.DataFrame:
 def rooms(df: pd.DataFrame) -> pd.DataFrame:
     mask = df["rooms"].isna()
 
-    try:
-        df.loc[mask, "rooms"] = df.loc[mask, ["title"]].swifter.apply(lambda x: search_in_text(x["title"], patterns_rooms), axis=1)
-    except Exception:
-        pass
-
-    try:
-        df.loc[mask, "rooms"] = df.loc[mask, ["description"]].swifter.apply(lambda x: search_in_text(x["description"], patterns_rooms), axis=1)
-
-    except:
-        pass
+    df.loc[mask, "rooms"] = df.loc[mask, ["title"]].swifter.apply(lambda x: search_in_text(x["title"], patterns_rooms), axis=1)
+    df.loc[mask, "rooms"] = df.loc[mask, ["description"]].swifter.apply(lambda x: search_in_text(x["description"], patterns_rooms), axis=1)
 
     return df
 
