@@ -3,7 +3,6 @@ from src.utils.etl.pipeline import load_data, extract, transform
 from src.utils.impute.pipeline import impute_pipeline
 from geopy import distance
 import swifter # noqa
-from sklearn.impute import KNNImputer
 
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error
@@ -11,10 +10,10 @@ from sklearn.model_selection import train_test_split, KFold
 
 from sklearn.impute import KNNImputer
 from sklearn.preprocessing import LabelEncoder
-from scipy.special import inv_boxcox, boxcox
 
 from multiprocessing import Pool
 import numpy as np
+
 
 def parallelize_dataframe(df, func, n_cores=10):
     df_split = np.array_split(df, n_cores)
@@ -43,9 +42,38 @@ def limpiar_fold(X_train, y_train, X_test):
     return X_train, y_train, X_test
 
 
+def closet_coffe_shop(lat, lon, df_secondary, threshold):
+    n_closest = 0
+    list_nearest = []
+    coffe_price = []
+    n_notables = 0
+    n_supernotables = 0
+    for i in df_secondary.iterrows():
+        dist = distance.great_circle((i[1]["lat"], i[1]["lon"]), (lat, lon)).km
+        list_nearest.append(dist)
+        if dist <= threshold:
+            n_closest += 1
+            coffe_price.append(i[1]["price"])
+            if i[1]["notable"]:
+                n_notables += 1
+            if i[1]["supernotable"]:
+                n_supernotables += 1
+
+    if len(coffe_price) > 0:
+        coffe_price_min = min(coffe_price)
+        coffe_price_max = max(coffe_price)
+    else:
+        coffe_price_min = -1
+        coffe_price_max = -1
+
+    dist_to_closest = min(list_nearest)
+
+    return dist_to_closest, n_closest, coffe_price, coffe_price_min, coffe_price_max, n_notables, n_supernotables
+
 if __name__ == "__main__":
     df_transporte = pd.read_parquet("data/processed/transporte/transporte.parquet", engine="pyarrow")
     df_hospitales = pd.read_parquet("data/processed/salud/hospitales.parquet", engine="pyarrow")
+    df_medialunas = pd.read_parquet("data/external/medialunas/medialunas.parquet", engine="pyarrow")
 
     df_transporte = df_transporte.dropna(subset=["lat", "lon"])
     df_hospitales = df_hospitales.dropna(subset=["lat", "lon"])
@@ -199,6 +227,12 @@ if __name__ == "__main__":
     # df_train = df_train[df_train["n_hospitals"] <= df_test["n_hospitals"].max()]
 
     df_train["price"] = np.sqrt(df_train["price"])
+
+    df_train["dist_to_closest"], df_train["n_closest"], df_train["coffe_price"], df_train["coffe_price_min"], df_train["coffe_price_max"], df_train["n_notables"], df_train["n_supernotables"]= df_train[["lat", "lon"]].swifter.apply(lambda x: closet_coffe_shop(x["lat"], x["lon"], df_medialunas, 1), axis=1, result_type="expand")
+    df_test["dist_to_closest"], df_test["n_closest"], df_test["coffe_price"], df_test["coffe_price_min"], df_test[
+        "coffe_price_max"], df_test["n_notables"], df_test["n_supernotables"] = df_test[
+        ["lat", "lon"]].swifter.apply(lambda x: closet_coffe_shop(x["lat"], x["lon"], df_medialunas, 1), axis=1,
+                                      result_type="expand")
 
     if True:
 
