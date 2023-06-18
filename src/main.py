@@ -152,6 +152,22 @@ if __name__ == "__main__":
         df_train["price"] = price_train
         df_train.index = id_train
 
+        df_train["closest_transport"], df_train["n_transports"] = df_train[["lat", "lon"]].swifter.apply(
+            lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
+        )
+
+        df_train["closest_hospital"], df_train["n_hospitals"] = df_train[["lat", "lon"]].swifter.apply(
+            lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
+        )
+
+        df_test["closest_transport"], df_test["n_transports"] = df_test[["lat", "lon"]].swifter.apply(
+            lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
+        )
+
+        df_test["closest_hospital"], df_test["n_hospitals"] = df_test[["lat", "lon"]].swifter.apply(
+            lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
+        )
+
         df_train.to_parquet("data/processed/df_train.parquet")
         df_test.to_parquet("data/processed/df_test.parquet")
     else:
@@ -178,26 +194,11 @@ if __name__ == "__main__":
     q3 = df_test["surface_total"].quantile(1)
     df_train = df_train[(df_train["surface_total"] >= q1) & (df_train["surface_total"] <= q3)]
 
-    df_train["closest_transport"], df_train["n_transports"] = df_train[["lat", "lon"]].swifter.apply(
-        lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
-    )
-
-    df_train["closest_hospital"], df_train["n_hospitals"] = df_train[["lat", "lon"]].swifter.apply(
-        lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
-    )
-
-    df_test["closest_transport"], df_test["n_transports"] = df_test[["lat", "lon"]].swifter.apply(
-        lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
-    )
-
-    df_test["closest_hospital"], df_test["n_hospitals"] = df_test[["lat", "lon"]].swifter.apply(
-        lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
-    )
-
-    #
+    # Quitar esto si no mejora
     # df_train = df_train[df_train["closest_hospital"] <= df_test["closest_hospital"].max()]
     # df_train = df_train[df_train["n_hospitals"] <= df_test["n_hospitals"].max()]
 
+    df_train["price"] = np.sqrt(df_train["price"])
 
     if True:
 
@@ -208,8 +209,6 @@ if __name__ == "__main__":
 
         X = df_train[df_train.columns.drop('price')]
         y = df_train['price']
-        # lamb_ = 0.5
-        # y = boxcox(y, lamb_)
 
         # Creamos el modelo
         reg = RandomForestRegressor(n_estimators=500, max_depth=5, n_jobs=-1, random_state=42)
@@ -236,8 +235,8 @@ if __name__ == "__main__":
             # Predecimos en train
             y_pred = reg.predict(X_train)
 
-            # y_pred = inv_boxcox(y_pred, lamb_)
-            # y_train = inv_boxcox(y_train, lamb_)
+            y_pred = np.power(y_pred, 2)
+            y_train = np.power(y_train, 2)
 
             # Medimos la performance de la predicción en test
             score_train = mean_squared_error(y_train, y_pred)
@@ -247,8 +246,8 @@ if __name__ == "__main__":
             # Predecimos en test
             y_pred = reg.predict(X_test)
 
-            # y_test = inv_boxcox(y_test, lamb_)
-            # y_pred = inv_boxcox(y_pred, lamb_)
+            y_pred = np.power(y_pred, 2)
+            y_test = np.power(y_test, 2)
 
             # Medimos la performance de la predicción en test
             score_test = mean_squared_error(y_test, y_pred)
@@ -265,7 +264,7 @@ if __name__ == "__main__":
         ## Datos a predecir
         X = df_train[df_train.columns.drop('price')]
         y = df_train['price']
-        # y = boxcox(y, lamb_)
+
         X_prueba = df_test[df_train.columns.drop('price')]  # cuidado:
 
         # Entrenamos el modelo con todos los datos
@@ -273,7 +272,7 @@ if __name__ == "__main__":
 
         # Predecimos
         df_test['price'] = reg.predict(X_prueba)
-        # df_test["price"] = inv_boxcox(df_test["price"], lamb_)
+        df_test["price"] = np.power(df_test["price"], 2)
 
         # Grabamos
         df_test['price'].to_csv('data/processed/solucion.csv', index=True)
