@@ -84,3 +84,17 @@ patterns_bedrooms = [
     r"\b([1-9])\s?(?:habitacion|habitaciones|alcoba|alcobas|cuarto|cuartos|pieza|piezas|suite|suites)\b",
     r"\b(?:habitacion|habitaciones|alcoba|alcobas|cuarto|cuartos|pieza|piezas|suite|suites)\s*?([1-9])\b",
 ]
+
+NUMBER_WORDS = {
+    "cero": "0",
+    "uno": "1",
+    "dos": "2",
+    "tres": "3",
+    "cuatro": "4",
+    "cinco": "5",
+    "seis": "6",
+    "siete": "7",
+    "ocho": "8",
+    "nueve": "9",
+    "diez": "10",
+}

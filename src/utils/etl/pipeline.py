@@ -23,7 +23,6 @@ def transform(df: pd.DataFrame) -> pd.DataFrame:
 
     df[["lat", "lon"]] = df[["lon", "lat"]]
     df["province"] = df["province"].map(MAP_PROVINCE)
-
     df = clean_text(df)
 
     return df
