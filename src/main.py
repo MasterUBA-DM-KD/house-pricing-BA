@@ -11,8 +11,7 @@ from sklearn.model_selection import train_test_split, KFold
 
 from sklearn.impute import KNNImputer
 from sklearn.preprocessing import LabelEncoder
-from scipy.stats import boxcox
-from scipy.special import inv_boxcox
+from scipy.special import inv_boxcox, boxcox
 
 from multiprocessing import Pool
 import numpy as np
@@ -164,6 +163,9 @@ if __name__ == "__main__":
 
     print(len(df_train))
 
+    df_train = df_train[df_train["rooms"] <= df_test["rooms"].max()]
+    df_train = df_train[df_train["bedrooms"] <= df_test["bedrooms"].max()]
+
     q1 = df_test["surface_covered"].quantile(0)
     q3 = df_test["surface_covered"].quantile(1)
 
@@ -176,96 +178,27 @@ if __name__ == "__main__":
     q3 = df_test["surface_total"].quantile(1)
     df_train = df_train[(df_train["surface_total"] >= q1) & (df_train["surface_total"] <= q3)]
 
-
-    # if False:
-    #     df_train = df_train[df_test.columns.tolist()]
-    #     df_train = df_train.drop_duplicates(keep='last')
-    #     df_train = df_train[df_train['suburb'].isin(df_test["suburb"].unique().tolist())]
-    #
-    #     dummy_cols = "province suburb published_suburb".split()
-    #     # dummy_cols = "suburb province".split()
-    #     columnsToEncode = ["ad_type", "property_type", "operation_type"]
-    #
-    #     drop_cols = [
-    #         "lat",
-    #         "lon",
-    #         "title",
-    #         "description",
-    #         "currency",
-    #         # "operation_type",
-    #         "country",
-    #         # "dist_buenos_aires"
-    #     ]
-    #
-    #     drop_cols = drop_cols + dummy_cols
-    #
-    #     df_train["is_train"] = True
-    #     df_test["is_train"] = False
-    #
-    #     df = pd.concat([df_train, df_test], axis=0)
-    #
-    #     df['suburb_is_published'] = df['suburb'] == df['published_suburb']
-    #
-    #     le = LabelEncoder()
-    #     for feature in columnsToEncode:
-    #         df[feature] = le.fit_transform(df[feature])
-    #
-    #     df = pd.concat([df, pd.get_dummies(df[dummy_cols])], axis=1)
-    #     df = df.reset_index(drop=True)
-    #
-    df["closest_transport"], df["n_transports"] = df.swifter.apply(
+    df_train["closest_transport"], df_train["n_transports"] = df_train[["lat", "lon"]].swifter.apply(
         lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
     )
 
-    df["closest_hospital"], df["n_hospitals"] = df.swifter.apply(
+    df_train["closest_hospital"], df_train["n_hospitals"] = df_train[["lat", "lon"]].swifter.apply(
         lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
     )
+
+    df_test["closest_transport"], df_test["n_transports"] = df_test[["lat", "lon"]].swifter.apply(
+        lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
+    )
+
+    df_test["closest_hospital"], df_test["n_hospitals"] = df_test[["lat", "lon"]].swifter.apply(
+        lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
+    )
+
     #
-    #     df = df.drop(drop_cols, axis=1)
-    #
-    #     df.set_index("id", inplace=True)
-    #
-    #     df_train = df[df["is_train"]].drop("is_train", axis=1)
-    #     df_test = df[~df["is_train"]].drop("is_train", axis=1)
-    #
-    #     df_train = df_train.reset_index(drop=False)
-    #     df_test = df_test.reset_index(drop=False)
-    #
-    #     load_data(df_train, "data/processed/df_train.parquet")
-    #     load_data(df_test, "data/processed/df_test.parquet")
-    # else:
-    #     df_train = pd.read_parquet("data/processed/df_train.parquet", engine="pyarrow")
-    #     df_test = pd.read_parquet("data/processed/df_test.parquet", engine="pyarrow")
-    #
-    # if False:
-    #     df_train["rooms"] = df_train["rooms"].fillna(df_test["rooms"].mean())
-    #     df_train["bedrooms"] = df_train["bedrooms"].fillna(df_test["bedrooms"].mean())
-    #
-    df_train = df_train[(df_train["rooms"] <= df_test["rooms"].max()) & (df_train["rooms"] > df_test["rooms"].min())]
-    df_train = df_train[(df_train["bedrooms"] <= df_test["bedrooms"].max()) & (df_train["bedrooms"] > df_test["bedrooms"].min())]
-    #
-    #     df_train["bedrooms"] = np.log(df_train["bedrooms"])
-    #     df_test["bedrooms"] = np.log(df_test["bedrooms"])
-    #
-    #     df_train["price"] = df_train["price"].fillna(df_train["price"].mean())
-    #
-    #     df_train = df_train[df_train["price"] > 0]
-    #     # indices_to_keep = ~df_train.isin([np.nan, np.inf, -np.inf]).any(axis=1)
-    #     # df_train = df_train[indices_to_keep].astype(np.float64)
-    #
-    #     # extra_cols = ["lat", "lon", "dist_buenos_aires", "surface_total"]
-    #     # df_train.drop(extra_cols, axis=1, inplace=True)
-    #     # df_test.drop(extra_cols, axis=1, inplace=True)
-    #
-    #     df_train["rooms"] = df_train["rooms"].fillna(df_train["rooms"].mean())
-    #     df_train["bathrooms"] = df_train["bathrooms"].fillna(df_train["bathrooms"].mean())
-    #     df_train["bedrooms"] = df_train["bedrooms"].fillna(df_train["rooms"]-1)
-    #
-    #     df_train["surface_covered"] = df_train["surface_covered"].fillna(df_train["surface_total"].mean())
-    #     df_train["surface_covered"] = df_train["surface_covered"].fillna(df_train["surface_covered"])
-    #
-    #     df_train = df_train.drop(["surface_total"], axis=1)
-    #     df_test = df_test.drop(["surface_total"], axis=1)
+    # df_train = df_train[df_train["closest_hospital"] <= df_test["closest_hospital"].max()]
+    # df_train = df_train[df_train["n_hospitals"] <= df_test["n_hospitals"].max()]
+
+
     if True:
 
         # Datos para probar
@@ -275,6 +208,8 @@ if __name__ == "__main__":
 
         X = df_train[df_train.columns.drop('price')]
         y = df_train['price']
+        # lamb_ = 0.5
+        # y = boxcox(y, lamb_)
 
         # Creamos el modelo
         reg = RandomForestRegressor(n_estimators=500, max_depth=5, n_jobs=-1, random_state=42)
@@ -301,6 +236,9 @@ if __name__ == "__main__":
             # Predecimos en train
             y_pred = reg.predict(X_train)
 
+            # y_pred = inv_boxcox(y_pred, lamb_)
+            # y_train = inv_boxcox(y_train, lamb_)
+
             # Medimos la performance de la predicción en test
             score_train = mean_squared_error(y_train, y_pred)
             score_train_mae = mean_absolute_error(y_train, y_pred)
@@ -308,6 +246,9 @@ if __name__ == "__main__":
 
             # Predecimos en test
             y_pred = reg.predict(X_test)
+
+            # y_test = inv_boxcox(y_test, lamb_)
+            # y_pred = inv_boxcox(y_pred, lamb_)
 
             # Medimos la performance de la predicción en test
             score_test = mean_squared_error(y_test, y_pred)
@@ -324,6 +265,7 @@ if __name__ == "__main__":
         ## Datos a predecir
         X = df_train[df_train.columns.drop('price')]
         y = df_train['price']
+        # y = boxcox(y, lamb_)
         X_prueba = df_test[df_train.columns.drop('price')]  # cuidado:
 
         # Entrenamos el modelo con todos los datos
@@ -331,6 +273,7 @@ if __name__ == "__main__":
 
         # Predecimos
         df_test['price'] = reg.predict(X_prueba)
+        # df_test["price"] = inv_boxcox(df_test["price"], lamb_)
 
         # Grabamos
         df_test['price'].to_csv('data/processed/solucion.csv', index=True)
