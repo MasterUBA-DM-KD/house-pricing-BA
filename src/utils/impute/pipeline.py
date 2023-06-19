@@ -2,13 +2,15 @@ from typing import List
 import swifter # noqa
 import numpy as np
 import pandas as pd
+from sklearn.impute import KNNImputer
+from sklearn.preprocessing import LabelEncoder
 from unidecode import unidecode
 from src.constants import (
     CG_CABA,
     CG_PLATA,
     CG_CABA_SUBURB,
     CG_PLATA_SUBURB,
-    patterns_bedrooms,
+    DROP_COLS_B4_TRAIN, DUMMY_COLS, PRECIOS_MEDIALUNA, PRECIOS_PROM_BARRIO, patterns_bedrooms,
     patterns_bathrooms,
     patterns_rooms,
     patterns_surface,
@@ -18,9 +20,12 @@ from src.constants import (
     KM_CABA,
     USER_AGENT
 )
+import pickle
 from geopy import distance
 from geopy.geocoders import Nominatim
-from src.utils.impute.impute import search_in_text, get_suburb, get_lat_lon
+
+from src.utils.etl.text_cleaner import remove_stopwords_punctuation, replace_number_words_with_ordinals
+from src.utils.impute.impute import search_in_text, get_suburb
 
 geolocator = Nominatim(user_agent=USER_AGENT, timeout=TIMEOUT)
 
@@ -35,6 +40,154 @@ def impute_pipeline(df: pd.DataFrame):
 
     return df
 
+
+def impute_brute_force(df_train, df_test):
+    drop_cols = DROP_COLS_B4_TRAIN + DUMMY_COLS + ["price"]
+    df_transporte = pd.read_parquet("data/processed/transporte/transporte.parquet", engine="pyarrow")
+    df_hospitales = pd.read_parquet("data/processed/salud/hospitales.parquet", engine="pyarrow")
+    df_medialunas = pd.read_parquet("data/external/medialunas/medialunas.parquet", engine="pyarrow")
+
+    df_transporte = df_transporte.dropna(subset=["lat", "lon"])
+    df_hospitales = df_hospitales.dropna(subset=["lat", "lon"])
+
+    df_train = df_train[df_test.columns.tolist()]
+    df_train = df_train.drop_duplicates(keep='last')
+    df_train = df_train[df_train["price"] > 1000]
+
+    df_train["is_train"] = True
+    df_test["is_train"] = False
+
+    df = pd.concat([df_train, df_test], axis=0)
+
+    df['suburb_is_published'] = df['suburb'] == df['published_suburb']
+
+    df["prom_price_depto"] = df["suburb"]
+    df["prom_price_depto"] = df["prom_price_depto"].map(PRECIOS_PROM_BARRIO)
+    df["prom_price_depto"] = df["prom_price_depto"].fillna(-1)
+
+    df["prom_price_medialuna"] = df["suburb"]
+    df["prom_price_medialuna"] = df["prom_price_medialuna"].map(PRECIOS_MEDIALUNA)
+    df["prom_price_medialuna"] = df["prom_price_medialuna"].fillna(-1)
+
+    for is_col in ["amenities", "pileta", "parrilla", "quincho", "sum", "gimnasio", "spa", "garage", "lavadero",
+                   "cochera", "baulera", "patio", "jardin", "premium", "retasado", "reciclado", "nuevo"]:
+        df["is_" + is_col] = df[["title", "description"]].swifter.apply(lambda x: x.str.contains(is_col).any(), axis=1)
+
+    le = LabelEncoder()
+    columnsToEncode = ["ad_type", "property_type", "operation_type"]
+    for feature in columnsToEncode:
+        df[feature] = le.fit_transform(df[feature])
+
+    df = pd.concat([df, pd.get_dummies(df[DUMMY_COLS])], axis=1)
+
+    df_train = df[df["is_train"]].drop("is_train", axis=1)
+    df_test = df[~df["is_train"]].drop("is_train", axis=1)
+
+    df_train_dropped = df_train[drop_cols]
+    df_train_dropped = df_train_dropped.reset_index(drop=True)
+    df_test_dropped = df_test[drop_cols]
+    df_test_dropped = df_test_dropped.reset_index(drop=True)
+
+    id_train = df_train.index
+    id_test = df_test.index
+
+    df_train = df_train.reset_index(drop=True)
+    df_test = df_test.reset_index(drop=True)
+
+    df_train = df_train.drop(drop_cols + ["price"], axis=1)
+    df_test = df_test.drop(drop_cols + ["price"], axis=1)
+
+    assert len(df_train.columns) == len(df_test.columns)
+
+    # imputer = KNNImputer(n_neighbors=3)
+    # imputer.fit(df_train)
+    #
+    # with open("data/processed/imputer.pkl", "wb") as f:
+    #     pickle.dump(imputer, f)
+
+    with open("data/processed/imputer.pkl", "rb") as f:
+        imputer = pickle.load(f)
+
+    imputed_values = imputer.transform(df_test)
+    df_test = pd.DataFrame(imputed_values, columns=list(df_test.columns))
+    df_test["id"] = id_test
+
+    imputed_values = imputer.transform(df_train)
+    df_train = pd.DataFrame(imputed_values, columns=list(df_train.columns))
+    df_train["id"] = id_train
+
+    df_train["closest_transport"], df_train["n_transports"] = df_train[["lat", "lon"]].swifter.apply(
+        lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
+    )
+
+    df_train["closest_hospital"], df_train["n_hospitals"] = df_train[["lat", "lon"]].swifter.apply(
+        lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
+    )
+
+    df_train["dist_to_closest"], df_train["n_closest"], df_train["coffe_price"], df_train["coffe_price_min"], \
+        df_train["coffe_price_max"], df_train["n_notables"], df_train["n_supernotables"] = df_train[
+        ["lat", "lon"]].swifter.apply(lambda x: closet_coffe_shop(x["lat"], x["lon"], df_medialunas, 1), axis=1,
+                                      result_type="expand")
+    df_test["closest_transport"], df_test["n_transports"] = df_test[["lat", "lon"]].swifter.apply(
+        lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
+    )
+
+    df_test["closest_hospital"], df_test["n_hospitals"] = df_test[["lat", "lon"]].swifter.apply(
+        lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
+    )
+    df_test["dist_to_closest"], df_test["n_closest"], df_test["coffe_price"], df_test["coffe_price_min"], df_test[
+        "coffe_price_max"], df_test["n_notables"], df_test["n_supernotables"] = df_test[
+        ["lat", "lon"]].swifter.apply(lambda x: closet_coffe_shop(x["lat"], x["lon"], df_medialunas, 1), axis=1,
+                                      result_type="expand")
+
+    for col in df_train_dropped.columns:
+        df_train[col] = df_train_dropped[col]
+    for col in df_test_dropped.columns:
+        df_test[col] = df_test_dropped[col]
+
+    return df_train, df_test
+
+
+def get_closest_locations(lat, lon, df_secondary, threshold):
+    n_closest = 0
+    list_nearest = []
+    for i in df_secondary.iterrows():
+        dist = distance.great_circle((i[1]["lat"], i[1]["lon"]), (lat, lon)).km
+        list_nearest.append(dist)
+        if dist <= threshold:
+            n_closest += 1
+
+    dist_to_closest = min(list_nearest)
+    return dist_to_closest, n_closest
+
+
+def closet_coffe_shop(lat, lon, df_secondary, threshold):
+    n_closest = 0
+    list_nearest = []
+    coffe_price = []
+    n_notables = 0
+    n_supernotables = 0
+    for i in df_secondary.iterrows():
+        dist = distance.great_circle((i[1]["lat"], i[1]["lon"]), (lat, lon)).km
+        list_nearest.append(dist)
+        if dist <= threshold:
+            n_closest += 1
+            coffe_price.append(i[1]["price"])
+            if i[1]["notable"]:
+                n_notables += 1
+            if i[1]["supernotable"]:
+                n_supernotables += 1
+
+    if len(coffe_price) > 0:
+        coffe_price_min = min(coffe_price)
+        coffe_price_max = max(coffe_price)
+    else:
+        coffe_price_min = -1
+        coffe_price_max = -1
+
+    dist_to_closest = min(list_nearest)
+
+    return dist_to_closest, n_closest, coffe_price, coffe_price_min, coffe_price_max, n_notables, n_supernotables
 
 def impute_suburbs_cg(df: pd.DataFrame) -> pd.DataFrame:
     lat_caba, lon_caba = CG_CABA[0], CG_CABA[1]
@@ -128,7 +281,7 @@ def suburbs(df: pd.DataFrame) -> pd.DataFrame:
 
 def get_all_suburbs(df: pd.DataFrame) -> List[str]:
     df_barrios = pd.read_csv("data/external/barrios/barrios_caba.csv")
-    df_barrios["barrio"] = df_barrios["barrio"].swifter.apply(lambda x: unidecode(x.lower()))
+    df_barrios["barrio"] = df_barrios["barrio"].swifter.apply(lambda x: unidecode(x.lower())).apply(remove_stopwords_punctuation).apply(replace_number_words_with_ordinals)
 
     # df_barrios = df_barrios.rename(columns={"barrio": "suburb"})
 

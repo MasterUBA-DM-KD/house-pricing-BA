@@ -1,623 +1,234 @@
 column,feature_importance
-surface_total,0.394797529919349
-bathrooms,0.20883996284768952
-lat,0.1635181176321955
-published_suburb_Puerto Madero,0.08033829905719951
-suburb_Puerto Madero,0.07632082751198838
-surface_covered,0.05001052932586266
-suburb_Palermo,0.006543938747684057
-lon,0.006517814476809874
-rooms,0.003634141316940905
-bedrooms,0.0032314511620539
-suburb_is_published,0.001945684769205499
-suburb_Caballito,0.00135349447366433
-published_suburb_Caballito,0.0011157476478498246
-property_type,0.0005529296685309271
-published_suburb_Palermo,0.0005451769607216132
-suburb_Coghlan,0.00031411226446830177
-suburb_Lanús,0.0001447126814399583
-suburb_Recoleta,8.692222163139776e-05
-published_suburb_Coghlan,5.408526023843446e-05
-published_suburb_San Telmo,4.0949620852271595e-05
-suburb_San Telmo,2.6567364400843283e-05
-published_suburb_Recoleta,2.601655393073608e-05
-published_suburb_Barracas,1.1939082952621897e-05
-published_suburb_Adrogué,1.0708266776250487e-05
-published_suburb_Palermo Hollywood,1.0418673833247839e-05
-published_suburb_Claypole,5.08970994127456e-06
-is_reciclado,2.2337813071705642e-06
-is_retasado,5.990004819594446e-07
-published_suburb_Luis Agote,0.0
-published_suburb_Guernica,0.0
-published_suburb_Guillermo Hudson,0.0
-published_suburb_Güemes,0.0
-published_suburb_Haras del Sur I,0.0
-published_suburb_Huerta Grande,0.0
-published_suburb_Lomas del Chateau,0.0
-published_suburb_Icho Cruz,0.0
-published_suburb_Ingeniero Juan Allan,0.0
-published_suburb_Islas Malvinas,0.0
-published_suburb_Ludueña,0.0
-published_suburb_Jardines del Valle,0.0
-published_suburb_Jardín de Epicuro,0.0
-published_suburb_Industrial Oeste,0.0
-published_suburb_GreenVille Polo & Resort,0.0
-published_suburb_Jose Marmol,0.0
-published_suburb_Granja de Funes,0.0
-published_suburb_Gorina,0.0
-published_suburb_Godoy Cruz,0.0
-published_suburb_Gobernador Benegas,0.0
-published_suburb_Glew,0.0
-published_suburb_Gerli,0.0
-published_suburb_General Urquiza,0.0
-published_suburb_General San Martín,0.0
-published_suburb_Luis Guillón,0.0
-published_suburb_General Paz,0.0
-published_suburb_General Levalle,0.0
-published_suburb_General Las Heras,0.0
-published_suburb_General Fernández Oro,0.0
-published_suburb_Floresta,0.0
-published_suburb_Jorge Cura,0.0
-published_suburb_José Hernández,0.0
-published_suburb_Lomita De San Luis,0.0
-published_suburb_Laguna Azul,0.0
-published_suburb_Lomas de Zamora,0.0
-published_suburb_Lomas de San Martín,0.0
-published_suburb_Longchamps,0.0
-published_suburb_Los Boulevares,0.0
-published_suburb_Llavallol,0.0
-published_suburb_Liniers,0.0
-published_suburb_Las Tortugas,0.0
-published_suburb_Las Higueras,0.0
-published_suburb_Las Delicias,0.0
-published_suburb_Las Cañitas,0.0
-published_suburb_Las Cañas,0.0
-published_suburb_Lanús Oeste,0.0
-published_suburb_Lanús Este,0.0
-published_suburb_Lanús,0.0
-published_suburb_Los Ceibos,0.0
-published_suburb_Juniors,0.0
-published_suburb_Los Hornos,0.0
-published_suburb_La Unión,0.0
-published_suburb_Florencio Varela,0.0
-published_suburb_La Sirena,0.0
-published_suburb_Los Molinos,0.0
-published_suburb_La Rioja,0.0
-published_suburb_La Puntilla,0.0
-published_suburb_Los Reartes,0.0
-published_suburb_La Plata,0.0
-published_suburb_Los Robles,0.0
-published_suburb_La Paternal,0.0
-published_suburb_La Cascada,0.0
-published_suburb_La Carmelita,0.0
-published_suburb_Lote Joven,0.0
-published_suburb_Flores,0.0
-published_suburb_Estancia Los Ñires,0.0
-published_suburb_Fincas de San Vicente,0.0
-published_suburb_Colonos Galeses,0.0
-published_suburb_Constitución,0.0
-published_suburb_Country La Reserva,0.0
-published_suburb_Country Nuevo Quilmes,0.0
-published_suburb_Crisol Norte,0.0
-published_suburb_Crisol Sur,0.0
-published_suburb_Cristalería,0.0
-published_suburb_Crucecita,0.0
-published_suburb_Cuatro Avenidas,0.0
-published_suburb_Córdoba,0.0
-published_suburb_Delegacion Municipal Villa Urquiza,0.0
-published_suburb_Delegación Municipal Santa Rita,0.0
-published_suburb_Distrito Audiovisual,0.0
-published_suburb_Distrito Carrodilla,0.0
-published_suburb_Distrito Chacras de Coria,0.0
-published_suburb_Distrito Ciudad de Godoy Cruz,0.0
-published_suburb_Congreso,0.0
-published_suburb_Colegiales,0.0
-published_suburb_Distrito Ciudad de Luján de Cuyo,0.0
-published_suburb_Club de Campo La Martona,0.0
-published_suburb_Canning,0.0
-published_suburb_Carlos Spegazzini,0.0
-published_suburb_Catalinas,0.0
-published_suburb_Cañuelas,0.0
-published_suburb_Centro,0.0
-published_suburb_Centro / Microcentro,0.0
-published_suburb_Centro América,0.0
-published_suburb_Centro de Integración Territorial Centro,0.0
-published_suburb_Centro de Integración Territorial Riberas del Paraná,0.0
-published_suburb_Centro de Integración Territorial Villa Cabello,0.0
-published_suburb_Cerro de las Rosas,0.0
-published_suburb_Chacarita,0.0
-published_suburb_Chacay,0.0
-published_suburb_City Bell,0.0
-published_suburb_Ciudad de Mendoza,0.0
-published_suburb_Distrito Ciudad de Las Heras,0.0
-published_suburb_Distrito Ciudad de Maipú,0.0
-published_suburb_Fincas de Iraola II,0.0
-published_suburb_Distrito San Francisco del Monte,0.0
-published_suburb_Dock Sud,0.0
-published_suburb_Don Bosco,0.0
-published_suburb_Don Orione,0.0
-published_suburb_Echesortu,0.0
-published_suburb_El Arenal,0.0
-published_suburb_El Pato,0.0
-published_suburb_España y Hospitales,0.0
-published_suburb_Estación del Carmen,0.0
-published_suburb_Maipú,0.0
-published_suburb_Esteban Echeverría,0.0
-published_suburb_Ex La Ponderosa,0.0
-published_suburb_Ezeiza,0.0
-published_suburb_Ezpeleta,0.0
-published_suburb_Fincas de Hudson,0.0
-published_suburb_Fincas de Iraola,0.0
-published_suburb_Distrito Villa Nueva,0.0
-published_suburb_Distrito Rodeo del Medio,0.0
-published_suburb_Distrito Ciudad de San Martín,0.0
-published_suburb_Distrito Rodeo de la Cruz,0.0
-published_suburb_Distrito Ciudad de San Rafael,0.0
-published_suburb_Distrito Ciudad de Tupungato,0.0
-published_suburb_Distrito Coquimbito,0.0
-published_suburb_Distrito Dorrego,0.0
-published_suburb_Distrito El Algarrobal,0.0
-published_suburb_Distrito El Challao,0.0
-published_suburb_Distrito El Plumerillo,0.0
-published_suburb_Distrito El Sauce,0.0
-published_suburb_Distrito Gutiérrez,0.0
-published_suburb_Distrito Jesús Nazareno,0.0
-published_suburb_Distrito Lunlunta,0.0
-published_suburb_Distrito Luzuriaga,0.0
-published_suburb_Distrito Panquehua,0.0
-published_suburb_Distrito Perdriel,0.0
-published_suburb_Distrito Puente de Hierro,0.0
-published_suburb_Luján de Cuyo,0.0
-ad_type,0.0
-published_suburb_Malagueño,0.0
-published_suburb_Valentina Sur Urbana,0.0
-published_suburb_Velez Sarsfield,0.0
-published_suburb_Versalles,0.0
-published_suburb_Villa Allende,0.0
-published_suburb_Villa Belgrano,0.0
-published_suburb_Villa Cabrera,0.0
-published_suburb_Villa Carlos Paz,0.0
-published_suburb_Villa Corina,0.0
-published_suburb_Villa Crespo,0.0
-published_suburb_Villa Cubas,0.0
-published_suburb_Villa Devoto,0.0
-published_suburb_Villa Dolores,0.0
-published_suburb_Villa Dominico,0.0
-published_suburb_Villa Edén,0.0
-published_suburb_Villa El Tropezón,0.0
-published_suburb_Villa Elisa,0.0
-published_suburb_Valentín Alsina,0.0
-published_suburb_Urquiza,0.0
-published_suburb_Villa España,0.0
-published_suburb_Unquillo,0.0
-published_suburb_San Vicente,0.0
-published_suburb_Santa Clara del Mar,0.0
-published_suburb_Santa Rosa de Calamuchita,0.0
-published_suburb_Sarandi,0.0
-published_suburb_Seccional 4ta,0.0
-published_suburb_Selva,0.0
-published_suburb_Sourigues,0.0
-published_suburb_Stoecklin,0.0
-published_suburb_Temperley,0.0
-published_suburb_Terralagos,0.0
-published_suburb_Tiro Federal,0.0
-published_suburb_Tolosa,0.0
-published_suburb_Tribunales,0.0
-published_suburb_Tristán Suárez,0.0
-published_suburb_Turdera,0.0
-published_suburb_Villa Elvira,0.0
-published_suburb_Villa General Belgrano,0.0
-published_suburb_San Rafael,0.0
-published_suburb_Villa Urquiza,0.0
-published_suburb_Villa del Parque,0.0
-published_suburb_Wilde,0.0
-published_suburb_Zona 3,0.0
-published_suburb_Zona 9,0.0
-published_suburb_Águila,0.0
+bathrooms,0.39438739794195987
+surface_total,0.17485130389239695
+price_m2,0.14359288500875889
+prom_price_depto,0.13588031900400427
+surface_covered,0.0804960193585817
+lon,0.033899329227243064
+rooms,0.016585057850993706
+is_coche,0.004255191666750395
+bedrooms,0.0025469484026514107
+suburb_puerto madero,0.0020861154348197713
+is_cochera,0.002060363446811644
+is_amenities,0.0020545680225108297
+suburb_palermo,0.001975905912423708
+lat,0.001748689159101909
+is_gimnasio,0.0014307974138622337
+is_piscina,0.0007686219297787154
+is_cocheras,0.0007636776112868453
+prom_price_medialuna,0.00028057266197631104
+suburb_is_published,0.00010187804950255565
+property_type,9.445930697039577e-05
+suburb_villa devoto,3.664846377294151e-05
+is_cochera fija,2.9900951470253444e-05
+suburb_canitas,2.1966149755555063e-05
+is_pileta,1.1504201365255103e-05
+is_jardin,7.737089270478415e-06
+suburb_san telmo,6.773266827910695e-06
+suburb_tribunales,6.207045116743251e-06
+suburb_caballito,4.713826378866728e-06
+is_cochera doble,4.245851530493242e-06
+is_baulera,3.443527712380391e-06
+is_expensas,3.154944458511066e-06
+suburb_retiro,1.8402604725472588e-06
+published_suburb_plata,1.7631194830307411e-06
+published_suburb_fincas hudson,0.0
+published_suburb_monte chingolo,0.0
+published_suburb_nan,0.0
+published_suburb_palermo chico,0.0
+published_suburb_palermo hollywood,0.0
+published_suburb_palermo soho,0.0
+published_suburb_fincas iraola,0.0
+published_suburb_palermo viejo,0.0
+published_suburb_pato,0.0
+published_suburb_pineiro,0.0
+published_suburb_gorina,0.0
+published_suburb_glew,0.0
+published_suburb_ezpeleta,0.0
+published_suburb_platanos,0.0
+published_suburb_ezeiza,0.0
+published_suburb_quilmes,0.0
+published_suburb_rafael calzada,0.0
+published_suburb_ranelagh,0.0
+published_suburb_remedios escalada,0.0
+published_suburb_ex ponderosa,0.0
+published_suburb_monte,0.0
+published_suburb_melchor romero,0.0
+published_suburb_manuel b gonnet,0.0
+published_suburb_luis guillon,0.0
+published_suburb_gerli,0.0
+published_suburb_florencio varela,0.0
+published_suburb_greenville polo resort,0.0
+published_suburb_guernica,0.0
+published_suburb_guillermo hudson,0.0
+published_suburb_san carlos,0.0
+published_suburb_haras sur i,0.0
+published_suburb_hornos,0.0
+published_suburb_ingeniero juan allan,0.0
+published_suburb_jose hernandez,0.0
+published_suburb_jose marmol,0.0
+published_suburb_laguna azul,0.0
+published_suburb_fincas san vicente,0.0
+published_suburb_fincas iraola ii,0.0
+published_suburb_lanus,0.0
+published_suburb_lanus oeste,0.0
+published_suburb_llavallol,0.0
+published_suburb_lomas zamora,0.0
+published_suburb_longchamps,0.0
+published_suburb_ringuelet,0.0
+published_suburb_valentin alsina,0.0
+published_suburb_san francisco solano,0.0
+is_cochera cubierta,0.0
+n_notables,0.0
+n_supernotables,0.0
+is_guardacoche,0.0
+is_semipiso,0.0
+is_semi piso,0.0
+is_impecable,0.0
+is_privado,0.0
+is_luminoso,0.0
+is_luz,0.0
+is_sol,0.0
+is_cochera descubierta,0.0
+coffe_price_min,0.0
+is_cochera semicubierta,0.0
+is_cochera triple,0.0
+is_cochera individual,0.0
+is_cochera privada,0.0
+is_cochera subterranea,0.0
+is_cochera subterránea,0.0
+is_cochera subterraneo,0.0
+is_cochera subterráneo,0.0
+is_cochera techada,0.0
+is_cochera cubierto,0.0
+coffe_price_max,0.0
+coffe_price,0.0
+published_suburb_san jose,0.0
+published_suburb_villa dominico,0.0
+published_suburb_san vicente,0.0
+published_suburb_sarandi,0.0
+published_suburb_sourigues,0.0
+published_suburb_temperley,0.0
+published_suburb_terralagos,0.0
+published_suburb_tolosa,0.0
+published_suburb_tristan suarez,0.0
+published_suburb_turdera,0.0
+published_suburb_union,0.0
+published_suburb_don bosco,0.0
+published_suburb_villa elisa,0.0
+n_closest,0.0
+published_suburb_villa elvira,0.0
+published_suburb_villa espana,0.0
+published_suburb_villa florida,0.0
+published_suburb_villa vatteone,0.0
+published_suburb_wilde,0.0
 closest_transport,0.0
 n_transports,0.0
 closest_hospital,0.0
 n_hospitals,0.0
 dist_to_closest,0.0
-n_closest,0.0
-coffe_price,0.0
-coffe_price_min,0.0
-coffe_price_max,0.0
-n_notables,0.0
-published_suburb_Villa Vatteone,0.0
-published_suburb_Villa Soldati,0.0
-published_suburb_Villa General Mitre,0.0
-published_suburb_Villa Satyta,0.0
-published_suburb_Villa Hipódromo,0.0
-published_suburb_Villa La Angostura,0.0
-published_suburb_Villa La Florida,0.0
-published_suburb_Villa Liliana,0.0
-published_suburb_Villa Los Cortaderos,0.0
-published_suburb_Villa Lugano,0.0
-published_suburb_Villa Luro,0.0
-published_suburb_Villa Marini,0.0
-published_suburb_Villa Marta,0.0
-published_suburb_Villa Ortuzar,0.0
-published_suburb_Villa Pueyrredón,0.0
-published_suburb_Villa Real,0.0
-published_suburb_Villa Revol,0.0
-published_suburb_Villa Riachuelo,0.0
-published_suburb_Villa Santa Rita,0.0
-published_suburb_San Salvador,0.0
-published_suburb_San Nicolás,0.0
-published_suburb_Manuel B Gonnet,0.0
-published_suburb_Municipio de Santa Rosa de Calamuchita,0.0
-published_suburb_Neuquén,0.0
-published_suburb_Norte,0.0
-published_suburb_Nuestra Señora de Lourdes,0.0
-published_suburb_Nueva Ciudad,0.0
-published_suburb_Nueva Córdoba,0.0
-published_suburb_Nuñez,0.0
-published_suburb_Núñez,0.0
-published_suburb_Once,0.0
-published_suburb_Palermo Chico,0.0
-published_suburb_Palermo Soho,0.0
-published_suburb_Palermo Viejo,0.0
-published_suburb_Parque,0.0
-published_suburb_Parque Avellaneda,0.0
-published_suburb_Parque Centenario,0.0
-published_suburb_Parque Chacabuco,0.0
-published_suburb_Natania 19,0.0
-published_suburb_Municipio de San Salvador de Jujuy,0.0
-published_suburb_Parque Patricios,0.0
-published_suburb_Municipio de Recreo,0.0
-published_suburb_Martin,0.0
-published_suburb_Mataderos,0.0
-published_suburb_Mayor Drummond,0.0
-published_suburb_Melchor Romero,0.0
-published_suburb_Mendiolaza,0.0
-published_suburb_Monserrat,0.0
-published_suburb_Monte Castro,0.0
-published_suburb_Burzaco,0.0
-published_suburb_Monte Grande,0.0
-published_suburb_Municipio de 25 de Mayo,0.0
-published_suburb_Municipio de Candelaria,0.0
-published_suburb_Municipio de Dos de Mayo,0.0
-published_suburb_Municipio de La Granja,0.0
-published_suburb_Municipio de Laboulaye,0.0
-published_suburb_Municipio de Merlo,0.0
-published_suburb_Parque Chas,0.0
-published_suburb_Parry Madryn,0.0
-published_suburb_San Martín,0.0
-published_suburb_Retiro,0.0
-published_suburb_Rodeo del Medio,0.0
-published_suburb_Rosario,0.0
-published_suburb_Rosario Centro,0.0
-published_suburb_Río Ceballos,0.0
-published_suburb_Río Segundo,0.0
-published_suburb_Saavedra,0.0
-published_suburb_Saldán Centro,0.0
-published_suburb_Salsipuedes,0.0
-published_suburb_San Antonio,0.0
-published_suburb_San Antonio de Arredondo,0.0
-published_suburb_San Carlos,0.0
-published_suburb_San Cristobal,0.0
-published_suburb_San Francisco Solano,0.0
-published_suburb_San Jose,0.0
-published_suburb_San José,0.0
-published_suburb_Ringuelet,0.0
-published_suburb_Resistencia,0.0
-published_suburb_Paso de Los Andes,0.0
-published_suburb_República de la Sexta,0.0
-published_suburb_Paternal,0.0
-published_suburb_Perito Moreno,0.0
-published_suburb_Pilar,0.0
-published_suburb_Piñeiro,0.0
-published_suburb_Platanos,0.0
-published_suburb_Pompeya,0.0
-published_suburb_Potrero de Garay,0.0
-published_suburb_Presidente Perón,0.0
-published_suburb_Providencia,0.0
-published_suburb_Pueyrredón,0.0
-published_suburb_Quilmes,0.0
-published_suburb_Rafael Calzada,0.0
-published_suburb_Rafaela,0.0
-published_suburb_Ranelagh,0.0
-published_suburb_Remedios de Escalada,0.0
-published_suburb_Monte Chingolo,0.0
-published_suburb_Barrio Norte,0.0
-published_suburb_Boedo,0.0
-suburb_España y Hospitales,0.0
-suburb_Estancia Los Ñires,0.0
-suburb_Esteban Echeverría,0.0
-suburb_Ezeiza,0.0
-suburb_Florencio Varela,0.0
-suburb_Flores,0.0
-suburb_Floresta,0.0
-suburb_General Fernández Oro,0.0
-suburb_General Las Heras,0.0
-suburb_General Levalle,0.0
-suburb_General Paz,0.0
-suburb_General San Martín,0.0
-suburb_General Urquiza,0.0
-suburb_Gobernador Benegas,0.0
-suburb_Godoy Cruz,0.0
-suburb_Granja de Funes,0.0
-suburb_Estación del Carmen,0.0
-suburb_El Arenal,0.0
-suburb_Huerta Grande,0.0
-suburb_Echesortu,0.0
-suburb_Distrito El Algarrobal,0.0
-suburb_Distrito El Challao,0.0
-suburb_Distrito El Plumerillo,0.0
-suburb_Distrito El Sauce,0.0
-suburb_Distrito Gutiérrez,0.0
-suburb_Distrito Jesús Nazareno,0.0
-suburb_Distrito Lunlunta,0.0
-suburb_Distrito Luzuriaga,0.0
-suburb_Distrito Panquehua,0.0
-suburb_Distrito Perdriel,0.0
-suburb_Distrito Puente de Hierro,0.0
-suburb_Distrito Rodeo de la Cruz,0.0
-suburb_Distrito Rodeo del Medio,0.0
-suburb_Distrito San Francisco del Monte,0.0
-suburb_Distrito Villa Nueva,0.0
-suburb_Güemes,0.0
-suburb_Icho Cruz,0.0
-published_suburb_Boca,0.0
-suburb_Liniers,0.0
-suburb_Lomas de Zamora,0.0
-suburb_Lomas del Chateau,0.0
-suburb_Lomita De San Luis,0.0
-suburb_Los Boulevares,0.0
-suburb_Los Ceibos,0.0
-suburb_Los Molinos,0.0
-suburb_Los Reartes,0.0
-suburb_Los Robles,0.0
-suburb_Lote Joven,0.0
-suburb_Ludueña,0.0
-suburb_Luis Agote,0.0
-suburb_Luján de Cuyo,0.0
-suburb_Maipú,0.0
-suburb_Malagueño,0.0
-suburb_Martin,0.0
-suburb_Lomas de San Martín,0.0
-suburb_Las Tortugas,0.0
-suburb_Industrial Oeste,0.0
-suburb_Las Higueras,0.0
-suburb_Islas Malvinas,0.0
-suburb_Jardines del Valle,0.0
-suburb_Jardín de Epicuro,0.0
-suburb_Jorge Cura,0.0
-suburb_Juniors,0.0
-suburb_La Carmelita,0.0
-suburb_La Cascada,0.0
-suburb_La Paternal,0.0
-suburb_La Plata,0.0
-suburb_La Puntilla,0.0
-suburb_La Rioja,0.0
-suburb_La Sirena,0.0
-suburb_Las Cañas,0.0
-suburb_Las Cañitas,0.0
-suburb_Las Delicias,0.0
-suburb_Distrito Dorrego,0.0
-suburb_Distrito Coquimbito,0.0
-suburb_Distrito Ciudad de Tupungato,0.0
-suburb_Ampliación Pueyrredón,0.0
-suburb_Anisacate,0.0
-suburb_Antártida Argentina,0.0
-suburb_Atlántida - Reserva Forestal,0.0
-suburb_Avellaneda,0.0
-suburb_Bajada San Roque,0.0
-suburb_Balvanera,0.0
-suburb_Barracas,0.0
-suburb_Barrancas del Golfo,0.0
-suburb_Barrio Cumbres,0.0
-suburb_Barrio Genereal Mosconi,0.0
-suburb_Barrio Industrial,0.0
-suburb_Barrio La Cruz,0.0
-suburb_Barrio Norte,0.0
-suburb_Barrio Remedios Escalada,0.0
-suburb_Belgrano,0.0
-suburb_Anexo Las Palmas,0.0
-suburb_Alvear,0.0
-suburb_Distrito Ciudad de San Rafael,0.0
-suburb_Altos del Corral,0.0
+published_suburb_don orione,0.0
+ad_type,0.0
+published_suburb_dock sud,0.0
+suburb_esteban echeverria,0.0
+suburb_boedo,0.0
+suburb_canuelas,0.0
+suburb_catalinas,0.0
+suburb_centro microcentro,0.0
+suburb_chacarita,0.0
+suburb_coghlan,0.0
+suburb_colegiales,0.0
+suburb_congreso,0.0
+suburb_constitucion,0.0
+suburb_distrito audiovisual,0.0
+suburb_ezeiza,0.0
+suburb_berazategui,0.0
+suburb_florencio varela,0.0
+suburb_flores,0.0
+suburb_floresta,0.0
+suburb_lanus,0.0
+suburb_liniers,0.0
+suburb_lomas zamora,0.0
+suburb_mataderos,0.0
+suburb_monserrat,0.0
+suburb_monte castro,0.0
+suburb_nan,0.0
+suburb_boca,0.0
+suburb_belgrano,0.0
+suburb_parque avellaneda,0.0
+is_reciclado,0.0
 operation_type,0.0
+is_parrilla,0.0
+is_quincho,0.0
+is_sum,0.0
+is_spa,0.0
+is_garage,0.0
+is_lavadero,0.0
+is_patio,0.0
+is_premium,0.0
+is_retasado,0.0
+is_nuevo,0.0
+suburb_barrio norte,0.0
 province_Buenos Aires,0.0
 province_Ciudad Autonoma de Buenos Aires,0.0
-suburb_Abasto,0.0
-suburb_Aburto,0.0
-suburb_Agronomía,0.0
-suburb_Agua de Oro,0.0
-suburb_Alberdi,0.0
-suburb_Alberto Olmedo,0.0
-suburb_Allen,0.0
-suburb_Almagro,0.0
-suburb_Almirante Brown,0.0
-suburb_Alta Córdoba,0.0
-suburb_Alto Alberdi,0.0
-suburb_Alto Verde,0.0
-suburb_Berazategui,0.0
-suburb_Berbel,0.0
-suburb_Bermejo,0.0
-suburb_Boca,0.0
-suburb_Crisol Norte,0.0
-suburb_Crisol Sur,0.0
-suburb_Cristalería,0.0
-suburb_Cuatro Avenidas,0.0
-suburb_Córdoba,0.0
-suburb_Delegacion Municipal Villa Urquiza,0.0
-suburb_Delegación Municipal Santa Rita,0.0
-suburb_Distrito Audiovisual,0.0
-suburb_Distrito Carrodilla,0.0
-suburb_Distrito Chacras de Coria,0.0
-suburb_Distrito Ciudad de Godoy Cruz,0.0
-suburb_Distrito Ciudad de Las Heras,0.0
-suburb_Distrito Ciudad de Luján de Cuyo,0.0
-suburb_Distrito Ciudad de Maipú,0.0
-suburb_Distrito Ciudad de San Martín,0.0
-suburb_Country La Reserva,0.0
-suburb_Constitución,0.0
-suburb_Congreso,0.0
-suburb_Centro de Integración Territorial Centro,0.0
-suburb_Boedo,0.0
-suburb_Catalinas,0.0
-suburb_Cañuelas,0.0
-suburb_Centro,0.0
-suburb_Centro / Microcentro,0.0
-suburb_Centro América,0.0
-suburb_Centro de Integración Territorial Riberas del Paraná,0.0
-suburb_Colonos Galeses,0.0
-suburb_Centro de Integración Territorial Villa Cabello,0.0
-suburb_Cerro de las Rosas,0.0
-suburb_Chacarita,0.0
-suburb_Chacay,0.0
-suburb_Ciudad de Mendoza,0.0
-suburb_Colegiales,0.0
-suburb_Mataderos,0.0
-suburb_Mayor Drummond,0.0
-suburb_Mendiolaza,0.0
-suburb_Villa Revol,0.0
-suburb_Villa Santa Rita,0.0
-suburb_Villa Satyta,0.0
-suburb_Villa Soldati,0.0
-suburb_Villa Urquiza,0.0
-suburb_Villa del Parque,0.0
-suburb_Zona 3,0.0
-suburb_Zona 9,0.0
-suburb_Águila,0.0
-published_suburb_Abasto,0.0
-published_suburb_Abril Club de Campo,0.0
-published_suburb_Aburto,0.0
-published_suburb_Agronomía,0.0
-published_suburb_Agua de Oro,0.0
-published_suburb_Alberdi,0.0
-published_suburb_Alberto Olmedo,0.0
-suburb_Villa Riachuelo,0.0
-suburb_Villa Real,0.0
-suburb_Villa Crespo,0.0
-suburb_Villa Pueyrredón,0.0
-suburb_Villa Devoto,0.0
-suburb_Villa Dolores,0.0
-suburb_Villa Edén,0.0
-suburb_Villa El Tropezón,0.0
-suburb_Villa General Belgrano,0.0
-suburb_Villa General Mitre,0.0
-suburb_Villa Hipódromo,0.0
-suburb_Villa La Angostura,0.0
-suburb_Villa Liliana,0.0
-suburb_Villa Los Cortaderos,0.0
-suburb_Villa Lugano,0.0
-suburb_Villa Luro,0.0
-suburb_Villa Marini,0.0
-suburb_Villa Marta,0.0
-suburb_Villa Ortuzar,0.0
-published_suburb_Alejandro Korn,0.0
-published_suburb_Alejandro Petión,0.0
-published_suburb_Allen,0.0
-published_suburb_Almagro,0.0
-published_suburb_Barrio Cerrado,0.0
-"published_suburb_Barrio Cerrado ""Barrancas de Iraola""",0.0
-"published_suburb_Barrio Cerrado ""Los Ombúes de Hudson""",0.0
-published_suburb_Barrio Cerrado Los Troncos,0.0
-published_suburb_Barrio Cumbres,0.0
-published_suburb_Barrio Genereal Mosconi,0.0
-published_suburb_Barrio Industrial,0.0
-published_suburb_Barrio La Cruz,0.0
-published_suburb_Barrio Remedios Escalada,0.0
-published_suburb_Belgrano,0.0
-published_suburb_Berazategui,0.0
-published_suburb_Berazategui Oeste,0.0
-published_suburb_Berbel,0.0
-published_suburb_Bermejo,0.0
-published_suburb_Bernal,0.0
-published_suburb_Barrancas del Golfo,0.0
-published_suburb_Banfield,0.0
-published_suburb_Balvanera,0.0
-published_suburb_Altos del Corral,0.0
-published_suburb_Almirante Brown,0.0
-published_suburb_Alta Córdoba,0.0
-published_suburb_Alto Alberdi,0.0
-published_suburb_Alto Verde,0.0
-published_suburb_Altos de Hudson I,0.0
-published_suburb_Altos de Hudson II,0.0
-published_suburb_Alvear,0.0
-published_suburb_Bajada San Roque,0.0
-published_suburb_Ampliación Pueyrredón,0.0
-published_suburb_Anexo Las Palmas,0.0
-published_suburb_Anisacate,0.0
-published_suburb_Antártida Argentina,0.0
-published_suburb_Atlántida - Reserva Forestal,0.0
-published_suburb_Avellaneda,0.0
-suburb_Villa Cubas,0.0
-suburb_Villa Corina,0.0
-suburb_Monserrat,0.0
-suburb_Núñez,0.0
-suburb_Parque,0.0
-suburb_Parque Avellaneda,0.0
-suburb_Parque Centenario,0.0
-suburb_Parque Chacabuco,0.0
-suburb_Parque Chas,0.0
-suburb_Parque Patricios,0.0
-suburb_Parry Madryn,0.0
-suburb_Paso de Los Andes,0.0
-suburb_Paternal,0.0
-suburb_Perito Moreno,0.0
-suburb_Pilar,0.0
-suburb_Pompeya,0.0
-suburb_Potrero de Garay,0.0
-suburb_Presidente Perón,0.0
-suburb_Providencia,0.0
-suburb_Once,0.0
-suburb_Nuñez,0.0
-suburb_Villa Carlos Paz,0.0
-suburb_Nueva Córdoba,0.0
-suburb_Monte Castro,0.0
-suburb_Municipio de 25 de Mayo,0.0
-suburb_Municipio de Candelaria,0.0
-suburb_Municipio de Dos de Mayo,0.0
-suburb_Municipio de La Granja,0.0
-suburb_Municipio de Laboulaye,0.0
-suburb_Municipio de Merlo,0.0
-suburb_Municipio de Recreo,0.0
-suburb_Municipio de San Salvador de Jujuy,0.0
-suburb_Municipio de Santa Rosa de Calamuchita,0.0
-suburb_Natania 19,0.0
-suburb_Neuquén,0.0
-suburb_Norte,0.0
-suburb_Nuestra Señora de Lourdes,0.0
-suburb_Nueva Ciudad,0.0
-suburb_Pueyrredón,0.0
-suburb_Quilmes,0.0
-suburb_Rafaela,0.0
-suburb_República de la Sexta,0.0
-suburb_Santa Clara del Mar,0.0
-suburb_Santa Rosa de Calamuchita,0.0
-suburb_Seccional 4ta,0.0
-suburb_Selva,0.0
-suburb_Stoecklin,0.0
-suburb_Tiro Federal,0.0
-suburb_Tribunales,0.0
-suburb_Unquillo,0.0
-suburb_Urquiza,0.0
-suburb_Valentina Sur Urbana,0.0
-suburb_Velez Sarsfield,0.0
-suburb_Versalles,0.0
-suburb_Villa Allende,0.0
-suburb_Villa Belgrano,0.0
-suburb_Villa Cabrera,0.0
-suburb_San Vicente,0.0
-suburb_San Salvador,0.0
-suburb_San Rafael,0.0
-suburb_Río Segundo,0.0
-suburb_Resistencia,0.0
-suburb_Retiro,0.0
-suburb_Rodeo del Medio,0.0
-suburb_Rosario,0.0
-suburb_Rosario Centro,0.0
-suburb_Río Ceballos,0.0
-suburb_Saavedra,0.0
-suburb_San Nicolás,0.0
-suburb_Saldán Centro,0.0
-suburb_Salsipuedes,0.0
-suburb_San Antonio,0.0
-suburb_San Antonio de Arredondo,0.0
-suburb_San Cristobal,0.0
-suburb_San Martín,0.0
-n_supernotables,0.0
+suburb_,0.0
+suburb_abasto,0.0
+suburb_agronomia,0.0
+suburb_almagro,0.0
+suburb_almirante brown,0.0
+suburb_avellaneda,0.0
+suburb_balvanera,0.0
+suburb_barracas,0.0
+suburb_nunez,0.0
+suburb_parque centenario,0.0
+published_suburb_crucecita,0.0
+published_suburb_barrio cerrado ombues hudson,0.0
+published_suburb_abril club campo,0.0
+published_suburb_adrogue,0.0
+published_suburb_alejandro korn,0.0
+published_suburb_alejandro petion,0.0
+published_suburb_altos hudson i,0.0
+published_suburb_altos hudson ii,0.0
+published_suburb_avellaneda,0.0
+published_suburb_banfield,0.0
+published_suburb_barrio cerrado,0.0
+published_suburb_barrio cerrado barrancas iraola,0.0
+published_suburb_barrio cerrado troncos,0.0
+suburb_villa soldati,0.0
+published_suburb_berazategui oeste,0.0
+published_suburb_bernal,0.0
+published_suburb_burzaco,0.0
+published_suburb_canning,0.0
+published_suburb_canuelas,0.0
+published_suburb_carlos spegazzini,0.0
+published_suburb_city bell,0.0
+published_suburb_claypole,0.0
+published_suburb_club campo martona,0.0
+published_suburb_country quilmes,0.0
+suburb_villa urquiza,0.0
+suburb_villa santa rita,0.0
+suburb_parque chacabuco,0.0
+suburb_san nicolas,0.0
+suburb_parque chas,0.0
+suburb_parque patricios,0.0
+suburb_paternal,0.0
+suburb_plata,0.0
+suburb_pompeya,0.0
+suburb_presidente peron,0.0
+suburb_quilmes,0.0
+suburb_recoleta,0.0
+suburb_saavedra,0.0
+suburb_san cristobal,0.0
+suburb_san vicente,0.0
+suburb_villa riachuelo,0.0
+suburb_velez sarsfield,0.0
+suburb_versalles,0.0
+suburb_villa crespo,0.0
+suburb_villa general mitre,0.0
+suburb_villa lugano,0.0
+suburb_villa luro,0.0
+suburb_villa ortuzar,0.0
+suburb_villa parque,0.0
+suburb_villa pueyrredon,0.0
+suburb_villa real,0.0
+published_suburb_berazategui,0.0

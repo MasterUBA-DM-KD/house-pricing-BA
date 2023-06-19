@@ -1,19 +1,14 @@
 import pandas as pd
 from src.utils.etl.pipeline import load_data, extract, transform
-from src.utils.impute.pipeline import impute_pipeline
-from geopy import distance
+from src.utils.impute.pipeline import impute_pipeline, impute_brute_force
 import swifter # noqa
-
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-from sklearn.model_selection import train_test_split, KFold
-
-from sklearn.impute import KNNImputer
-from sklearn.preprocessing import LabelEncoder
-
 from multiprocessing import Pool
+from sklearn.decomposition import PCA
 import numpy as np
-
+from src.constants import PRICE_M2, DROP_COLS_B4_TRAIN, DUMMY_COLS
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split, KFold
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 def parallelize_dataframe(df, func, n_cores=10):
     df_split = np.array_split(df, n_cores)
@@ -23,18 +18,6 @@ def parallelize_dataframe(df, func, n_cores=10):
     pool.join()
     return df
 
-def get_closest_locations(lat, lon, df_secondary, threshold):
-    n_closest = 0
-    list_nearest = []
-    for i in df_secondary.iterrows():
-        dist = distance.great_circle((i[1]["lat"], i[1]["lon"]), (lat, lon)).km
-        list_nearest.append(dist)
-        if dist <= threshold:
-            n_closest += 1
-
-    dist_to_closest = min(list_nearest)
-    return dist_to_closest, n_closest
-
 
 def limpiar_fold(X_train, y_train, X_test):
     # TODO: limpiar los datos
@@ -42,47 +25,9 @@ def limpiar_fold(X_train, y_train, X_test):
     return X_train, y_train, X_test
 
 
-def closet_coffe_shop(lat, lon, df_secondary, threshold):
-    n_closest = 0
-    list_nearest = []
-    coffe_price = []
-    n_notables = 0
-    n_supernotables = 0
-    for i in df_secondary.iterrows():
-        dist = distance.great_circle((i[1]["lat"], i[1]["lon"]), (lat, lon)).km
-        list_nearest.append(dist)
-        if dist <= threshold:
-            n_closest += 1
-            coffe_price.append(i[1]["price"])
-            if i[1]["notable"]:
-                n_notables += 1
-            if i[1]["supernotable"]:
-                n_supernotables += 1
-
-    if len(coffe_price) > 0:
-        coffe_price_min = min(coffe_price)
-        coffe_price_max = max(coffe_price)
-    else:
-        coffe_price_min = -1
-        coffe_price_max = -1
-
-    dist_to_closest = min(list_nearest)
-
-    return dist_to_closest, n_closest, coffe_price, coffe_price_min, coffe_price_max, n_notables, n_supernotables
-
 if __name__ == "__main__":
-    df_transporte = pd.read_parquet("data/processed/transporte/transporte.parquet", engine="pyarrow")
-    df_hospitales = pd.read_parquet("data/processed/salud/hospitales.parquet", engine="pyarrow")
-    df_medialunas = pd.read_parquet("data/external/medialunas/medialunas.parquet", engine="pyarrow")
-
-    df_transporte = df_transporte.dropna(subset=["lat", "lon"])
-    df_hospitales = df_hospitales.dropna(subset=["lat", "lon"])
-
     if False:
         df_train, df_test = extract()
-        print(len(df_train))
-        print(len(df_test))
-
         df_train = parallelize_dataframe(df_train, transform)
         df_test = parallelize_dataframe(df_test, transform)
 
@@ -91,158 +36,111 @@ if __name__ == "__main__":
     else:
         df_train = pd.read_parquet("data/raw/df_train.parquet")
         df_test = pd.read_parquet("data/raw/df_test.parquet")
-
-    print(len(df_train))
-    print(len(df_test))
+        df_train = df_train.set_index("id")
+        df_test = df_test.set_index("id")
 
     if False:
         df_train = impute_pipeline(df_train)
-        load_data(df_train, "data/interim/df_train.parquet")
-
         df_test = impute_pipeline(df_test)
+
+        load_data(df_train, "data/interim/df_train.parquet")
         load_data(df_test, "data/interim/df_test.parquet")
     else:
         df_train = pd.read_parquet("data/interim/df_train.parquet", engine="pyarrow")
         df_test = pd.read_parquet("data/interim/df_test.parquet", engine="pyarrow")
-
-    print(len(df_train))
-    print(len(df_test))
+        df_train = df_train.set_index("id")
+        df_test = df_test.set_index("id")
 
     if False:
-        df_train = df_train[df_test.columns.tolist()]
-        df_train = df_train[df_train["price"] > 1000]
-        df_train = df_train.reset_index(drop=True)
-        df_train["is_retasado"] = df_train[["title", "description"]].swifter.apply(
-            lambda x: x.str.contains("retasado").any(), axis=1)
-        df_test["is_retasado"] = df_test[["title", "description"]].swifter.apply(
-            lambda x: x.str.contains("retasado").any(), axis=1)
+        df_train, df_test = impute_brute_force(df_train, df_test)
 
-        df_train["is_reciclado"] = df_train[["title", "description"]].swifter.apply(
-            lambda x: x.str.contains("reciclado").any(), axis=1)
-        df_test["is_reciclado"] = df_test[["title", "description"]].swifter.apply(
-            lambda x: x.str.contains("reciclado").any(), axis=1)
-        drop_cols = [
-            # "lat",
-            # "lon",
-            "title",
-            "description",
-            "currency",
-            "country",
-        ]
-        dummy_cols = "province suburb published_suburb".split()
-        drop_cols = drop_cols + dummy_cols
-        df_train["is_train"] = True
-        df_test["is_train"] = False
-
-        df = pd.concat([df_train, df_test], axis=0)
-
-        df['suburb_is_published'] = df['suburb'] == df['published_suburb']
-
-        le = LabelEncoder()
-        columnsToEncode = ["ad_type", "property_type", "operation_type"]
-        for feature in columnsToEncode:
-            df[feature] = le.fit_transform(df[feature])
-
-        df = pd.concat([df, pd.get_dummies(df[dummy_cols])], axis=1)
-        df = df.reset_index(drop=True)
-        df = df.drop(drop_cols, axis=1)
-
-        df_train = df[df["is_train"]].drop("is_train", axis=1)
-        df_test = df[~df["is_train"]].drop("is_train", axis=1)
-
-        df_train = df_train.reset_index(drop=True)
-        df_test = df_test.reset_index(drop=True)
-
-        df_train = df_train.drop_duplicates(keep='last')
-        df_train = df_train.reset_index(drop=True)
-
-        price_train = df_train["price"]
-        price_test = df_test["price"]
-
-        id_train = df_train["id"]
-        id_test = df_test["id"]
-
-        df_train = df_train.drop(["price", "id"], axis=1)
-        df_test = df_test.drop(["price", "id"], axis=1)
-
-        assert len(df_train.columns) == len(df_test.columns)
-
-        imputer = KNNImputer(n_neighbors=3)
-        imputer.fit(df_train)
-
-        imputed_values = imputer.transform(df_test)
-        df_test = pd.DataFrame(imputed_values, columns=list(df_test.columns))
-        df_test["price"] = price_test
-        df_test.index = id_test
-
-        imputed_values = imputer.transform(df_train)
-        df_train = pd.DataFrame(imputed_values, columns=list(df_train.columns))
-        df_train["price"] = price_train
-        df_train.index = id_train
-
-        df_train["closest_transport"], df_train["n_transports"] = df_train[["lat", "lon"]].swifter.apply(
-            lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
-        )
-
-        df_train["closest_hospital"], df_train["n_hospitals"] = df_train[["lat", "lon"]].swifter.apply(
-            lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
-        )
-
-        df_test["closest_transport"], df_test["n_transports"] = df_test[["lat", "lon"]].swifter.apply(
-            lambda x: get_closest_locations(x["lat"], x["lon"], df_transporte, 1), axis=1, result_type="expand"
-        )
-
-        df_test["closest_hospital"], df_test["n_hospitals"] = df_test[["lat", "lon"]].swifter.apply(
-            lambda x: get_closest_locations(x["lat"], x["lon"], df_hospitales, 3), axis=1, result_type="expand"
-        )
-
-        df_train.to_parquet("data/processed/df_train.parquet")
-        df_test.to_parquet("data/processed/df_test.parquet")
+        df_train.to_parquet("data/processed/df_train.parquet", engine="pyarrow")
+        df_test.to_parquet("data/processed/df_test.parquet", engine="pyarrow")
     else:
-        df_train = pd.read_parquet("data/processed/df_train.parquet")
-        df_test = pd.read_parquet("data/processed/df_test.parquet")
-
-    df_train["rooms"] = df_train["rooms"].round(0)
-    df_train["bedrooms"] = df_train["bedrooms"].round(0)
-
-    print(len(df_train))
-
-    df_train = df_train[df_train["rooms"] <= df_test["rooms"].max()]
-    df_train = df_train[df_train["bedrooms"] <= df_test["bedrooms"].max()]
-
-    q1 = df_test["surface_covered"].quantile(0)
-    q3 = df_test["surface_covered"].quantile(1)
-
-    # bottom = q1 - 1.5 * (q3 - q1)
-    # top = q3 + 1.5 * (q3 - q1)
-
-    df_train = df_train[(df_train["surface_covered"] >= q1) & (df_train["surface_covered"] <= q3)]
-
-    q1 = df_test["surface_total"].quantile(0)
-    q3 = df_test["surface_total"].quantile(1)
-    df_train = df_train[(df_train["surface_total"] >= q1) & (df_train["surface_total"] <= q3)]
-
-    # Quitar esto si no mejora
-    # df_train = df_train[df_train["closest_hospital"] <= df_test["closest_hospital"].max()]
-    # df_train = df_train[df_train["n_hospitals"] <= df_test["n_hospitals"].max()]
-
-    df_train["price"] = np.sqrt(df_train["price"])
-
-    df_train["dist_to_closest"], df_train["n_closest"], df_train["coffe_price"], df_train["coffe_price_min"], df_train["coffe_price_max"], df_train["n_notables"], df_train["n_supernotables"]= df_train[["lat", "lon"]].swifter.apply(lambda x: closet_coffe_shop(x["lat"], x["lon"], df_medialunas, 1), axis=1, result_type="expand")
-    df_test["dist_to_closest"], df_test["n_closest"], df_test["coffe_price"], df_test["coffe_price_min"], df_test[
-        "coffe_price_max"], df_test["n_notables"], df_test["n_supernotables"] = df_test[
-        ["lat", "lon"]].swifter.apply(lambda x: closet_coffe_shop(x["lat"], x["lon"], df_medialunas, 1), axis=1,
-                                      result_type="expand")
+        df_train = pd.read_parquet("data/processed/df_train.parquet", engine="pyarrow")
+        df_test = pd.read_parquet("data/processed/df_test.parquet", engine="pyarrow")
+        df_train = df_train.set_index("id")
+        df_test = df_test.set_index("id")
 
     if True:
+        # df_train["rooms"] = df_train["rooms"].round(0)
+        # df_train["bedrooms"] = df_train["bedrooms"].round(0)
 
+        print(len(df_train))
+
+        df_train = df_train[df_train["rooms"] <= df_test["rooms"].max()]
+        df_train = df_train[df_train["bedrooms"] <= df_test["bedrooms"].max()]
+
+        df_train["rooms"] = df_train["rooms"].round(0)
+        df_train["bedrooms"] = df_train["bedrooms"].round(0)
+
+        for i in ["guardacoche", "semipiso", "semi piso", "impecable", "privado", "expensas", "luminoso", "luz", "sol", "parrilla", "pileta", "piscina", "cochera", "cocheras", "cochera fija", "cochera cubierta", "cochera descubierta", "cochera semicubierta", "cochera doble", "cochera triple", "cochera individual", "cochera privada", "cochera subterranea", "cochera subterránea", "cochera subterraneo", "cochera subterráneo", "cochera techada", "cochera techada", "cochera cubierta", "cochera cubierto", "coche"]:
+            df_train["is_"+i] = df_train["title"].str.contains(i).astype(int)
+            df_train["is_"+i] = df_train["description"].str.contains(i).astype(int)
+            df_test["is_"+i] = df_test["title"].str.contains(i).astype(int)
+            df_test["is_"+i] = df_test["description"].str.contains(i).astype(int)
+
+        df_train = df_train.reset_index(drop=False)
+
+        mask = df_train["id"].isin([652530, 651150, 651152, 652530])
+        df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.61448064637565, -58.44638197269814
+
+        mask = df_train["id"].isin([989132])
+        df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.611899576485676, -58.362587801243954
+
+        mask = df_train["id"].isin([296311, 817492])
+        df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.5886245902084, -58.39162131321634
+
+        mask = df_train["id"].isin([626300])
+        df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.5786532716302, -58.426567290655626
+
+        df_train = df_train.set_index("id")
+
+        # q1 = df_test["surface_covered"].quantile(0)
+        # q3 = df_test["surface_covered"].quantile(1)
+        # df_train = df_train[(df_train["surface_covered"] >= q1) & (df_train["surface_covered"] <= 1.5*q3)]
+        #
+        # q1 = df_test["surface_total"].quantile(0)
+        # q3 = df_test["surface_total"].quantile(1)
+        # df_train = df_train[(df_train["surface_total"] >= q1) & (df_train["surface_total"] <= 1.5*q3)]
+
+        df_train["price"] = np.sqrt(df_train["price"])
+        #
+        # df_train = df_train.reset_index(drop=False)
+        # df_test = df_test.reset_index(drop=False)
+
+        # df_train["price_m2"] = np.maximum(1000000, df_train["price"] / np.maximum(df_train["surface_covered"], df_train["surface_total"]))
+        df_train["price_m2"] = df_train["suburb"].map(PRICE_M2)
+        df_train["price_m2"] = df_train["price_m2"].fillna(-1)
+
+        df_test["price_m2"] = df_test["suburb"].map(PRICE_M2)
+        df_test["price_m2"] = df_test["price_m2"].fillna(-1)
+
+        df_train = df_train.drop(DROP_COLS_B4_TRAIN + DUMMY_COLS, axis=1)
+        df_test = df_test.drop(DROP_COLS_B4_TRAIN + DUMMY_COLS , axis=1)
+
+        df_train.to_parquet("data/processed/df_train_b4_train.parquet", engine="pyarrow")
+        df_test.to_parquet("data/processed/df_test_b4_train.parquet", engine="pyarrow")
+    else:
+        df_train = pd.read_parquet("data/processed/df_train_b4_train.parquet", engine="pyarrow")
+        df_test = pd.read_parquet("data/processed/df_test_b4_train.parquet", engine="pyarrow")
+        df_train = df_train.set_index("id")
+        df_test = df_test.set_index("id")
+
+
+    if True:
         # Datos para probar
         df_train = df_train.select_dtypes(include=['float64', 'int64', 'int32', 'int16', 'int8', 'bool'])
+
+        pca = PCA(0.95, random_state=42)
 
         print(len(df_train))
 
         X = df_train[df_train.columns.drop('price')]
         y = df_train['price']
+
+        X = pca.fit_transform(X, y)
+        X = pd.DataFrame(X)
 
         # Creamos el modelo
         reg = RandomForestRegressor(n_estimators=500, max_depth=5, n_jobs=-1, random_state=42)
@@ -302,7 +200,10 @@ if __name__ == "__main__":
         X_prueba = df_test[df_train.columns.drop('price')]  # cuidado:
 
         # Entrenamos el modelo con todos los datos
+        X = pca.transform(X)
         reg.fit(X, y)
+
+        X_prueba = pca.transform(X_prueba)
 
         # Predecimos
         df_test['price'] = reg.predict(X_prueba)
@@ -311,9 +212,10 @@ if __name__ == "__main__":
         # Grabamos
         df_test['price'].to_csv('data/processed/solucion.csv', index=True)
 
-        importances = pd.DataFrame(
-            zip(df_train.columns.drop('price'), reg.feature_importances_),
-            columns=["column", "feature_importance"]
-        ).sort_values(by="feature_importance", ascending=False)
+        # importances = pd.DataFrame(
+        #     zip(X_prueba.columns, reg.feature_importances_),
+        #     # zip(df_train.columns.drop('price'), reg.feature_importances_),
+        #     columns=["column", "feature_importance"]
+        # ).sort_values(by="feature_importance", ascending=False)
 
-        importances.to_csv("data/processed/importances.csv", index=False)
+        # importances.to_csv("data/processed/importances.csv", index=False)

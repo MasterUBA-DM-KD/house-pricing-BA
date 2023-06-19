@@ -21,7 +21,6 @@ def filter_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def fill_na(df: pd.DataFrame) -> pd.DataFrame:
-    print(len(df[df["lat"] > -4]))
     df["lat"] = df["lat"].map(lambda x: np.nan if x >= -1 else x)
     df["lon"] = df["lon"].map(lambda x: np.nan if x >= -1 else x)
     df["rooms"] = df["rooms"].map(lambda x: np.nan if x < 1 else x)
@@ -30,8 +29,8 @@ def fill_na(df: pd.DataFrame) -> pd.DataFrame:
     df["surface_total"] = df["surface_total"].map(lambda x: np.nan if x < 15 else x)
     df["surface_covered"] = df["surface_covered"].map(lambda x: np.nan if x < 15 else x)
 
-    df["title"] = df["title"].map(lambda x: np.nan if len(str(x)) < 30 else x)
-    df["description"] = df["description"].map(lambda x: np.nan if len(str(x)) < 30 else x)
+    df["title"] = df["title"].map(lambda x: np.nan if len(str(x)) < 10 else x)
+    df["description"] = df["description"].map(lambda x: np.nan if len(str(x)) < 10 else x)
 
     df["title"] = df["title"].fillna("")
     df["description"] = df["description"].fillna("")
@@ -57,6 +56,7 @@ def clean_text(df: pd.DataFrame) -> pd.DataFrame:
         df["title"]
         # .swifter
         .apply(lambda x: unidecode(x).lower().replace("  ", " ").replace(",", ".").strip())
+        .apply(lambda x: x.replace("gral.", "general").replace("gral", "general"))
         .apply(remove_stopwords_punctuation)
         .apply(replace_number_words_with_ordinals)
     )
@@ -64,6 +64,26 @@ def clean_text(df: pd.DataFrame) -> pd.DataFrame:
     df["description"] = (
         df["description"]
         # .swifter
+        .apply(lambda x: unidecode(x).lower().replace("  ", " ").replace(",", ".").strip())
+        .apply(lambda x: x.replace("gral.", "general").replace("gral", "general"))
+        .apply(remove_stopwords_punctuation)
+        .apply(replace_number_words_with_ordinals)
+    )
+
+    df["suburb"] = (
+        df["suburb"]
+        # .swifter
+        .apply(lambda x: str(x))
+        .apply(lambda x: unidecode(x).lower().replace("  ", " ").replace(",", ".").strip())
+        .apply(lambda x: x.replace("gral.", "general").replace("gral", "general"))
+        .apply(remove_stopwords_punctuation)
+        .apply(replace_number_words_with_ordinals)
+    )
+
+    df["published_suburb"] = (
+        df["published_suburb"]
+        # .swifter
+        .apply(lambda x: str(x))
         .apply(lambda x: unidecode(x).lower().replace("  ", " ").replace(",", ".").strip())
         .apply(remove_stopwords_punctuation)
         .apply(replace_number_words_with_ordinals)
