@@ -1,15 +1,22 @@
-import pandas as pd
-from src.utils.etl.pipeline import load_data, extract, transform
-from src.utils.impute.pipeline import impute_pipeline, impute_brute_force
-import swifter # noqa
 import pickle
 from multiprocessing import Pool
-from sklearn.decomposition import PCA
+
 import numpy as np
-from src.constants import PRICE_M2, DROP_COLS_B4_TRAIN, DUMMY_COLS
+import pandas as pd
+import swifter  # noqa
+from sklearn.decomposition import PCA
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import RandomizedSearchCV, train_test_split, KFold
 from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.model_selection import (
+    GridSearchCV,
+    KFold,
+    RandomizedSearchCV,
+    train_test_split,
+)
+
+from src.constants import DROP_COLS_B4_TRAIN, DUMMY_COLS, PRICE_M2
+from src.utils.etl.pipeline import extract, load_data, transform
+from src.utils.impute.pipeline import impute_brute_force, impute_pipeline
 
 
 def parallelize_dataframe(df, func, n_cores=10):
@@ -64,7 +71,7 @@ if __name__ == "__main__":
         df_train = df_train.set_index("id")
         df_test = df_test.set_index("id")
 
-    if True:
+    if False:
         # df_train["rooms"] = df_train["rooms"].round(0)
         # df_train["bedrooms"] = df_train["bedrooms"].round(0)
 
@@ -84,17 +91,17 @@ if __name__ == "__main__":
 
         df_train = df_train.reset_index(drop=False)
 
-        # mask = df_train["id"].isin([652530, 651150, 651152, 652530])
-        # df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.61448064637565, -58.44638197269814
+        mask = df_train["id"].isin([652530, 651150, 651152, 652530])
+        df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.61448064637565, -58.44638197269814
 
-        # mask = df_train["id"].isin([989132])
-        # df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.611899576485676, -58.362587801243954
-        #
-        # mask = df_train["id"].isin([296311, 817492])
-        # df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.5886245902084, -58.39162131321634
-        #
-        # mask = df_train["id"].isin([626300])
-        # df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.5786532716302, -58.426567290655626
+        mask = df_train["id"].isin([989132])
+        df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.611899576485676, -58.362587801243954
+
+        mask = df_train["id"].isin([296311, 817492])
+        df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.5886245902084, -58.39162131321634
+
+        mask = df_train["id"].isin([626300])
+        df_train.loc[mask, "lat"], df_train.loc[mask, "lon"] = -34.5786532716302, -58.426567290655626
 
         df_train = df_train.set_index("id")
 
@@ -106,7 +113,7 @@ if __name__ == "__main__":
         # q3 = df_test["surface_total"].quantile(1)
         # df_train = df_train[(df_train["surface_total"] >= q1) & (df_train["surface_total"] <= 1.5*q3)]
 
-        df_train["price"] = np.sqrt(np.sqrt(df_train["price"]))
+        df_train["price"] = np.sqrt(df_train["price"])
         #
         # df_train = df_train.reset_index(drop=False)
         # df_test = df_test.reset_index(drop=False)
@@ -124,10 +131,11 @@ if __name__ == "__main__":
         df_train.to_parquet("data/processed/df_train_b4_train.parquet", engine="pyarrow")
         df_test.to_parquet("data/processed/df_test_b4_train.parquet", engine="pyarrow")
     else:
-        df_train = pd.read_parquet("data/processed/df_train_b4_train.parquet", engine="pyarrow")
+        # df_train = pd.read_parquet("data/processed/df_train_b4_train.parquet", engine="pyarrow")
+        df_train = pd.read_parquet("data/processed/df_train_adv.parquet", engine="pyarrow")
         df_test = pd.read_parquet("data/processed/df_test_b4_train.parquet", engine="pyarrow")
-        df_train = df_train.set_index("id")
-        df_test = df_test.set_index("id")
+        # df_train = df_train.set_index("id")
+        # df_test = df_test.set_index("id")
 
 
     if True:
@@ -138,6 +146,8 @@ if __name__ == "__main__":
 
         X = df_train[df_train.columns.drop('price')]
         y = df_train['price']
+
+        y = np.sqrt(y)
 
 
         # Creamos el modelo
@@ -156,31 +166,35 @@ if __name__ == "__main__":
 
         kf = KFold(n_splits=10, shuffle=True, random_state=42)
 
-        param_grid = {
-            "n_estimators": [100, 200, 300, 400, 500],
-            "max_depth": [2, 3, 4, 5, 6, 7, 8, 9, 10],
-            "min_samples_leaf": [1, 2, 3, 4, 5],
-            "max_features": ["auto", "sqrt", "log2"],
-            "bootstrap": [True, False],
-            "criterion": ["mse", "mae"],
-        }
-        model = RandomForestRegressor(n_jobs=-1, random_state=42)
+        if True:
+            param_grid = {
+                "n_estimators": [100, 200, 300, 400, 500],
+                "max_depth": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+                "min_samples_leaf": [1, 2, 3, 4, 5],
+                "max_features": ["sqrt", "log2"],
+                "bootstrap": [True, False],
+                "criterion": ['squared_error', 'poisson', 'friedman_mse'],
+            }
+            model = RandomForestRegressor(n_jobs=-1, random_state=42)
 
-        grid_search = RandomizedSearchCV(
-            model,
-            param_distributions=param_grid,
-            scoring="neg_mean_absolute_error",
-            cv=kf, n_jobs=-1,
-            verbose=1,
-            random_state=42,
-            refit=True
-        )
+            grid_search = GridSearchCV(
+                model,
+                param_grid=param_grid,
+                scoring="neg_mean_absolute_error",
+                cv=kf, n_jobs=-1,
+                verbose=2,
+                #random_state=42,
+                refit=True
+            )
 
-        grid_search.fit(X, y)
-        reg = grid_search.best_estimator_
+            grid_search.fit(X, y)
+            reg = grid_search.best_estimator_
 
-        with open("models/rf.pkl", "wb") as f:
-            pickle.dump(reg, f)
+            with open("models/rf.pkl", "wb") as f:
+                pickle.dump(reg, f)
+        else:
+            with open("models/rf.pkl", "rb") as f:
+                reg = pickle.load(f)
 
 
         for fold, (train_index, test_index) in enumerate(kf.split(X_train_test, y_train_test)):
@@ -224,7 +238,8 @@ if __name__ == "__main__":
 
         ## Datos a predecir
         X = df_train[df_train.columns.drop('price')]
-        y = df_train['price']
+        y = np.sqrt(df_train['price'])
+#y = np.sqrt(y)
 
         X_prueba = df_test[df_train.columns.drop('price')]  # cuidado:
 
